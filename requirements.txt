@@ -1,4 +1,4 @@
-oauth2client
-PyGithub
-keyring
+oauth2client>=3.0.0
+PyGithub>=1.28
+keyring>=9.3.1
 

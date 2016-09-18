@@ -7,4 +7,11 @@ setup(name='fabricghdeploykeys',
       author='Kevin Barnes',
       author_email='kbarnes3@gmail.com',
       url='https://github.com/kbarnes3/FabricGHDeployKeys',
-      packages=['fabricghdeploykeys'])
+      install_requires=['oauth2client>=3.0.0', 'PyGithub>=1.28', 'keyring>=9.3.1'],
+      packages=['fabricghdeploykeys'],
+      entry_points={
+          'console_scripts': [
+              'auth = fabricghdeploykeys.oauth_flow:run_oauth_flow'
+          ]
+      },
+      )
