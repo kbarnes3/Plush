@@ -3,6 +3,7 @@
 
 # Files we produce while running
 /venv
+*egg-info/
 
 #PyCharm files
 .idea
