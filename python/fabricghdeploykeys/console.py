@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from sys import argv
-from .oauth_flow import run_oauth_flow
+from .oauth_flow import delete_access_token, run_oauth_flow, verify_access_token
 from .repo_keys import list_repo_keys
 
 
@@ -17,8 +17,8 @@ def auth_entry():
 
     actions = {
         auth_choice: run_oauth_flow,
-        verify_choice: lambda: None,
-        delete_choice: lambda: None,
+        verify_choice: verify_access_token,
+        delete_choice: delete_access_token,
     }
 
     command = actions[args.action]

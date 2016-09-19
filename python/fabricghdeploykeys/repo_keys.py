@@ -1,10 +1,9 @@
-from github import Github, GithubException
-from .oauth_flow import get_access_token
+from github import GithubException
+from .oauth_flow import get_api
 
 
 def list_repo_keys(repo_full_name):
-    token = get_access_token()
-    api = Github(token)
+    api = get_api()
 
     repo = api.get_repo(repo_full_name)
     deploy_keys = repo.get_keys()
