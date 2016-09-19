@@ -29,4 +29,12 @@ def list_keys_entry():
     parser = ArgumentParser(prog='listkeys', description='Lists the deploy keys for the given repro')
     parser.add_argument('repo_name', help='The full name of the repo (e.g., octocat/Hello-World)')
     args = parser.parse_args(argv[1:])
-    list_repo_keys(args.repo_name)
+    repo_name = args.repo_name
+
+    if repo_name.startswith('\'') or repo_name.startswith('"'):
+        repo_name = repo_name[1:]
+
+    if repo_name.endswith('\'') or repo_name.endswith('"'):
+        repo_name = repo_name[:-1]
+
+    list_repo_keys(repo_name)
