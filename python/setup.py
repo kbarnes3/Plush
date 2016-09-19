@@ -11,7 +11,7 @@ setup(name='fabricghdeploykeys',
       packages=['fabricghdeploykeys'],
       entry_points={
           'console_scripts': [
-              'auth = fabricghdeploykeys.oauth_flow:run_oauth_flow'
+              'auth = fabricghdeploykeys.console:console_entry'
           ]
       },
       )
