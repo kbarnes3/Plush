@@ -7,7 +7,8 @@ DEFAULT_KEY_DIRECTORY = '/var/deploykeys'
 
 
 def get_keyfile(project_name, directory=DEFAULT_KEY_DIRECTORY):
-    keyfile = '{0}/{1}'.format(directory, project_name)
+    sanitized_name = project_name.replace('/', '_')
+    keyfile = '{0}/{1}'.format(directory, sanitized_name)
     return keyfile
 
 
