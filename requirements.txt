@@ -1,6 +1,4 @@
+git+https://github.com/kbarnes3/PyGithub.git@v1.30.private#egg=PyGithub
 -e ./python
 git+https://github.com/dlitz/pycrypto.git@v2.7a1#egg=pycrypto
 fabric3>=1.12.post1
-oauth2client>=3.0.0
-PyGithub>=1.28
-keyring>=9.3.1

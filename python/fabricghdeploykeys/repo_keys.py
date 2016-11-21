@@ -30,6 +30,6 @@ def add_repo_key(repo_full_name, key_name=''):
     repo = api.get_repo(repo_full_name)
 
     try:
-        repo.create_key(key_name, public_keyfile_contents)
+        repo.create_key(key_name, public_keyfile_contents, read_only=True)
     except GithubException as exception:
         print('Failed with {0}, data: {1}'.format(exception.status, exception.data))
