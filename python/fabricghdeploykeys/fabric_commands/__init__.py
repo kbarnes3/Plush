@@ -1,4 +1,5 @@
 from fabric.api import settings, sudo
+from .ssh_key import get_keyfile
 
 
 class _AllowedException(Exception):
