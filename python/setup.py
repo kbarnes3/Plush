@@ -6,7 +6,7 @@ from distutils.core import setup
 pygithub = 'https://github.com/kbarnes3/PyGithub/archive/v1.30.private.zip#egg=PyGithub-1.30.private'
 
 setup(name='fabricghdeploykeys',
-      version='1.0.0',
+      version='1.0.1',
       description='Helper library for Fabric to simplify creating and managing GitHub deploy keys when deploying GitHub-hosted repositories',
       author='Kevin Barnes',
       author_email='kbarnes3@gmail.com',
