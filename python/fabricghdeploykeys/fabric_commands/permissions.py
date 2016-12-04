@@ -3,14 +3,29 @@ from fabric.api import cd, sudo
 
 def make_directory(owning_group, directory, mod='660'):
     sudo('mkdir -p {0}'.format(directory))
-    set_permissions(directory, owning_group, mod)
+    set_permissions_directory(directory, owning_group, mod)
 
 
-def set_permissions(directory, group, mod='660', setgid=True):
+def set_permissions_directory(directory, group=None, user=None, mod='660', setgid=True):
     with cd(directory):
-        sudo('chgrp -R webadmin .'.format(group))
+        if group is not None:
+            sudo('chgrp -R {0} .'.format(group))
+
+        if user is not None:
+            sudo('chown -R {0} .'.format(user))
+
         sudo('chmod -R {0} .'.format(mod))
         sudo('chmod -R ug+X .')
 
         if setgid:
             sudo('chmod -R g+s .')
+
+
+def set_permissions_file(file, user=None, group=None, mod='644'):
+    if group is not None:
+        sudo('chgrp {0} {1}'.format(group, file))
+
+    if user is not None:
+        sudo('chown {0} {1}'.format(user, file))
+
+    sudo('chmod {0} {1}'.format(mod, file))
