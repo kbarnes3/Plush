@@ -1,8 +1,15 @@
 import os
 from github import Github, GithubException
-from oauth2client.client import flow_from_clientsecrets
+from oauth2client.client import OAuth2WebServerFlow
 from oauth2client.contrib import keyring_storage
 from oauth2client.tools import run_flow
+
+
+CLIENT_ID = '9c1f1cd55fb93aeb1d8e'
+CLIENT_SECRET = '87e2ac9824795db0fb01ec6dde7e7ac859fd0af4'
+SCOPE = 'repo'
+AUTH_URI = 'https://github.com/login/oauth/authorize'
+TOKEN_URI = 'https://github.com/login/oauth/access_token'
 
 
 class AuthException(Exception):
@@ -11,9 +18,7 @@ class AuthException(Exception):
 
 
 def run_oauth_flow():
-    directory = os.path.dirname(__file__)
-    secrets_path = os.path.join(directory, 'client_secrets.json')
-    flow = flow_from_clientsecrets(secrets_path, 'repo')
+    flow = OAuth2WebServerFlow(CLIENT_ID, CLIENT_SECRET, SCOPE, auth_uri=AUTH_URI, token_uri=TOKEN_URI)
     storage = _get_storage()
     cred = run_flow(flow, storage)
 
