@@ -46,15 +46,18 @@ def verify_access_token():
         api = get_api()
     except AuthException as exception:
         print('Error: {0}'.format(exception.message))
-        return
+        return False
 
     user = api.get_user()
 
     try:
         print("Successfully authenticated as {0} (Name: '{1}' Email: '{2}')".format(user.login, user.name, user.email))
+        return True
     except GithubException as exception:
         print('Failed with {0}, data: {1}'.format(exception.status, exception.data))
         print('Unable to verify local auth token. Run \'auth\' to reset')
+
+    return False
 
 
 def delete_access_token():
