@@ -1,9 +1,9 @@
 from fabric.api import cd, sudo
 
 
-def make_directory(owning_group, directory, mod='660'):
+def make_directory(owning_group, directory, mod='ug+rw,o+r,o-w'):
     sudo('mkdir -p {0}'.format(directory))
-    set_permissions_directory(directory, owning_group, mod)
+    set_permissions_directory(directory, group=owning_group, mod=mod)
 
 
 def set_permissions_directory(directory, group=None, user=None, mod='660', setgid=True):
