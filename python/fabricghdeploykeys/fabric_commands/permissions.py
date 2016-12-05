@@ -1,7 +1,7 @@
 from fabric.api import cd, sudo
 
 
-def make_directory(owning_group, directory, mod='ug+rw,o+r,o-w'):
+def make_directory(owning_group, directory, mod='ug+rwX,o+rX,o-w'):
     sudo('mkdir -p {0}'.format(directory))
     set_permissions_directory(directory, group=owning_group, mod=mod)
 
@@ -15,7 +15,6 @@ def set_permissions_directory(directory, group=None, user=None, mod='660', setgi
             sudo('chown -R {0} .'.format(user))
 
         sudo('chmod -R {0} .'.format(mod))
-        sudo('chmod -R ug+X .')
 
         if setgid:
             sudo('chmod -R g+s .')
