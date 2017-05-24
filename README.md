@@ -1,10 +1,10 @@
-FabricGHDeployKeys
+Plush
 ==============
 
 A helper library for Fabric to simplify creating and managing GitHub deploy keys when deploying your GitHub-hosted
 repository.
 
-FabricGHDeployKeys aims to make deployments easier by:
+Plush aims to make deployments easier by:
 - Using OAuth flows to securely connect to the GitHub API on your behalf
 (while supporting 2 factor auth and never handling your username/password)
 - Generating SSH deploy keys on your target computer

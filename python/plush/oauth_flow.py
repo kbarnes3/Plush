@@ -5,8 +5,8 @@ from oauth2client.contrib import keyring_storage
 from oauth2client.tools import run_flow
 
 
-CLIENT_ID = '9c1f1cd55fb93aeb1d8e'
-CLIENT_SECRET = '87e2ac9824795db0fb01ec6dde7e7ac859fd0af4'
+CLIENT_ID = '1fe774845dda5a15936d'
+CLIENT_SECRET = '5212960321bcd875538f2221769ae74612e27a04'
 SCOPE = 'repo'
 AUTH_URI = 'https://github.com/login/oauth/authorize'
 TOKEN_URI = 'https://github.com/login/oauth/access_token'
@@ -66,4 +66,4 @@ def delete_access_token():
 
 
 def _get_storage():
-    return keyring_storage.Storage('FabricGHDeployKeys', 'default')
+    return keyring_storage.Storage('PlushKeys', 'default')
