@@ -1,5 +1,6 @@
+from plush.fabric_commands import setup_user
+
 def test_deploy():
-    from plush.fabric_commands import setup_user
     from plush.repo_keys import add_repo_key
     from plush.fabric_commands.git import clone
     from plush.fabric_commands.permissions import make_directory
