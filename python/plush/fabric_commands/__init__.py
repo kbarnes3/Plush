@@ -6,7 +6,7 @@ class _AllowedException(Exception):
     pass
 
 
-def setup_user(user, group, add_sudo='no'):
+def setup_user(user, group, add_sudo='yes'):
     user_exists = False
 
     with settings(abort_exception=_AllowedException):
@@ -35,6 +35,3 @@ def setup_user(user, group, add_sudo='no'):
     if add_sudo.lower() == 'yes':
         sudo('adduser {0} sudo'.format(user))
 
-
-def create_deploy_key(repo_full_name):
-    pass
