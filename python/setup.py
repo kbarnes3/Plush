@@ -11,7 +11,7 @@ setup(name='plush',
       author='Kevin Barnes',
       author_email='kbarnes3@gmail.com',
       url='https://github.com/kbarnes3/Plush',
-      install_requires=['oauth2client>=3.0.0', 'PyGithub==1.30.private', 'keyring>=9.3.1', ],
+      install_requires=['oauth2client>=3.0.0', 'PyGithub==1.34', 'keyring>=9.3.1', ],
       dependency_links=[pygithub, ],
       packages=['plush', 'plush.fabric_commands'],
       entry_points={
