@@ -1,18 +1,28 @@
 from distutils.core import setup
 
-# This private version of PyGithub merges in a pull request to add support for read-only deploy keys
-# This can be changed back to the mainline releases once https://github.com/PyGithub/PyGithub/pull/467 is merged
-# or issue https://github.com/PyGithub/PyGithub/issues/405 is fixed some other way
-pygithub = 'https://github.com/kbarnes3/PyGithub/archive/v1.30.private.zip#egg=PyGithub-1.30.private'
+long_description="""Plush is designed to SSH deploy keys on a remote computer using Fabric. These deploy keys are stored in the repo settings for your repo on GitHub using the GitHub API (using OAUTH credentials). Plush then clones your repo using a remote path that references these deploy keys. Plush allows multiple projects to have unique deploy keys all on one computer."""
 
-setup(name='plush',
+setup(name='plush-fabric',
       version='0.1.0',
       description='Helper library for Fabric to simplify creating and managing GitHub deploy keys when deploying GitHub-hosted repositories',
+      long_description=long_description,
       author='Kevin Barnes',
       author_email='kbarnes3@gmail.com',
       url='https://github.com/kbarnes3/Plush',
+      license='BSD',
+      classifiers=[
+          'Development Status :: 4 - Beta',
+          'Intended Audience :: Developers',
+          'Topic :: Software Development',
+          'License :: OSI Approved :: BSD License',
+          "Operating System :: OS Independent",
+          'Programming Language :: Python :: 2',
+          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3',
+          'Programming Language :: Python :: 3.6',
+          ],
+      keywords='fabric github deployment',
       install_requires=['oauth2client>=3.0.0', 'PyGithub-ReadOnly', 'keyring>=9.3.1', ],
-      dependency_links=[pygithub, ],
       packages=['plush', 'plush.fabric_commands'],
       entry_points={
           'console_scripts': [
