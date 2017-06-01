@@ -2,6 +2,7 @@
 *.pyc
 
 # Files we produce while running
+build/
 dist/
 MANIFEST
 /venv
