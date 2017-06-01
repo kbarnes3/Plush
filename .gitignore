@@ -2,6 +2,8 @@
 *.pyc
 
 # Files we produce while running
+dist/
+MANIFEST
 /venv
 *egg-info/
 
