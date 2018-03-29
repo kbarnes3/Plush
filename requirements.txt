@@ -1,5 +1,5 @@
 fabric3>=1.14.post1
-pywin32-ctypes==0.0.1 # Workaround for https://github.com/jaraco/keyring/issues/278
+pywin32-ctypes==0.1.2 # Workaround for https://github.com/jaraco/keyring/issues/278
 -e ./python
 wheel
 twine

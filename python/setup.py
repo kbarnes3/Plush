@@ -22,7 +22,7 @@ setuptools.setup(name='plush-fabric',
           'Programming Language :: Python :: 3.6',
           ],
       keywords='fabric github deployment',
-      install_requires=['oauth2client>=3.0.0', 'PyGithub-ReadOnly', 'keyring>=9.3.1', ],
+      install_requires=['oauth2client>=3.0.0', 'PyGithub>=1.3.8', 'keyring>=12.0.0'],
       packages=['plush', 'plush.fabric_commands'],
       entry_points={
           'console_scripts': [
