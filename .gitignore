@@ -10,3 +10,6 @@ MANIFEST
 
 #PyCharm files
 .idea
+
+#VSCode files
+.vscode
