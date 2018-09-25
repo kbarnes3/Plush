@@ -1,0 +1,32 @@
+# Set up project for the first time after , or set it back to the initial first unused state.
+param(
+    [switch]$GitClean
+)
+
+. $PSScriptRoot\Write-Status.ps1
+$project_root = Split-Path $PSScriptRoot
+
+if ($env:VIRTUAL_ENV) {
+    deactivate
+}
+
+if ($GitClean) {
+    Write-Status "Running 'git clean -df'"
+    & git clean -df
+}
+
+# Remove local state if it exists
+$venv = Join-Path $project_root "venv"
+if (Test-Path $venv) {
+    Write-Status "Removing $venv"
+    Remove-Item -Recurse -Force -Path $venv
+}
+
+Write-Status "Creating venv in $venv"
+& py -3.6 -m venv $venv
+
+. $PSScriptRoot\Bootstrap.ps1 -Verbose
+
+. $PSScriptRoot\Ensure-Venv.ps1 | Out-Null
+
+deactivate
