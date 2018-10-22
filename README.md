@@ -14,5 +14,5 @@ SSH keys used elsewhere on your server
 - ACL'ing these keys so they can be reused by people to fetch/deploy on your behalf
 (and not readable by anyone else)
 
-To get started, please wait for better instructions.
+To get started, see fabfile.py for a minimal usage of Plush. For a more complete example, see my [BaseDjangoSite template](https://github.com/kbarnes3/BaseDjangoSite).
 
