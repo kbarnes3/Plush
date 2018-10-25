@@ -49,3 +49,9 @@ def prepare_user(user, group, add_sudo=True, no_sudo_passwd=False):
         messages += 'The {0} account was created without a password set. A superuser will need to manually run ' \
                     '\"sudo passwd {0}\"'.format(user)
 
+
+def add_authorized_key(user, public_key):
+    sudo('mkdir -p ~/.ssh', user=user)
+    sudo('touch ~/.ssh/authorized_keys', user=user)
+    sudo('chmod -R go= ~/.ssh ', user=user)
+    sudo('echo "{0}" | tee -a ~/.ssh/authorized_keys'.format(public_key), user=user)

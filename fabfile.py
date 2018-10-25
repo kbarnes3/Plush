@@ -4,19 +4,14 @@ env.use_ssh_config = True  # This makes it easier to use key based authenticatio
 
 
 def setup_user(user, no_sudo_passwd='', public_key_file=''):
-    from fabric.api import sudo
-    from plush.fabric_commands import prepare_user
+    from plush.fabric_commands import add_authorized_key, prepare_user
 
     prepare_user(user, 'webadmin', add_sudo=True, no_sudo_passwd=bool(no_sudo_passwd))
 
     if public_key_file:
         with open(public_key_file, 'r') as public_key:
             public_key_contents = public_key.read()
-
-        sudo('mkdir -p ~/.ssh', user=user)
-        sudo('touch ~/.ssh/authorized_keys', user=user)
-        sudo('chmod -R go= ~/.ssh ', user=user)
-        sudo('echo "{0}" | tee -a ~/.ssh/authorized_keys'.format(public_key_contents), user=user)
+        add_authorized_key(user, public_key_contents)
 
 
 def test_deploy():
