@@ -19,6 +19,8 @@ def add_authorized_key(user, public_key_file):
 
 
 def test_deploy():
+    from fabric.api import sudo
+    from fabric.contrib.files import exists
     from plush.repo_keys import add_repo_key
     from plush.fabric_commands.git import clone
     from plush.fabric_commands.permissions import make_directory
@@ -29,5 +31,6 @@ def test_deploy():
     create_key(repo_full_name, owning_group)
     add_repo_key(repo_full_name)
     make_directory(owning_group, '/var/src')
-    clone(repo_full_name, '/var/src/test')
-
+    if exists('/var/src/test'):
+        sudo('rm -rf /var/src/test')
+    clone(repo_full_name, '/var/src/test', skip_strict_key_checking=True)
