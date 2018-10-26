@@ -51,6 +51,10 @@ def prepare_user(user, group, add_sudo=True, no_sudo_passwd=False):
                     '\"sudo passwd {0}\"\n'.format(user)
         messages += 'Where possible, consider not setting a password and instead using key based authentication.\n'
 
+    if messages:
+        # Every message line ends in a newline. If we've got a non-empty message, strip the last character
+        messages = messages[:-1]
+
     return messages
 
 
