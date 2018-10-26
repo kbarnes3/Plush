@@ -45,9 +45,13 @@ def prepare_user(user, group, add_sudo=True, no_sudo_passwd=False):
 
     if add_sudo and not no_sudo_passwd:
         messages += 'Ensure {0} has a secure password configured in order to run commands as sudo.\n'.format(user)
+        messages += 'Alternatively, rerun this command with the no_sudo_passwd=True parameter\n'
     if not user_exists:
         messages += 'The {0} account was created without a password set. A superuser will need to manually run ' \
-                    '\"sudo passwd {0}\"'.format(user)
+                    '\"sudo passwd {0}\"\n'.format(user)
+        messages += 'Where possible, consider not setting a password and instead using key based authentication.\n'
+
+    return messages
 
 
 def add_authorized_key(user, public_key):
