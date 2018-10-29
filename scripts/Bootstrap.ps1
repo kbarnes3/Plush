@@ -21,6 +21,8 @@ Write-Status "Updating pip"
 & python -m pip install --upgrade pip $quiet
 Write-Status "Updating requirements"
 & pip install -r (Join-Path $project_root "requirements.txt") $quiet
+Write-Status "Updating upgradable requirements"
+& pip install --upgrade -r (Join-Path $project_root "upgrade-requirements.txt") $quiet
 
 Pop-Location
 

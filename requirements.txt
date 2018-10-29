@@ -1,5 +1,2 @@
 fabric3>=1.14.post1
 -e ./python
-wheel
-twine
-
