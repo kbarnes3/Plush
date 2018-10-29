@@ -59,7 +59,7 @@ def prepare_user(user, group, add_sudo=True, no_sudo_passwd=False):
 
 
 def add_authorized_key(user, public_key):
-    sudo('mkdir -p ~/.ssh', user=user)
-    sudo('touch ~/.ssh/authorized_keys', user=user)
-    sudo('chmod -R go= ~/.ssh ', user=user)
-    sudo('echo "{0}" | tee -a ~/.ssh/authorized_keys'.format(public_key), user=user)
+    sudo('mkdir -p /home/{0}/.ssh'.format(user), user=user)
+    sudo('touch /home/{0}/.ssh/authorized_keys'.format(user), user=user)
+    sudo('chmod -R go= /home/{0}/.ssh'.format(user), user=user)
+    sudo('echo "{0}" | tee -a /home/{1}/.ssh/authorized_keys'.format(public_key, user), user=user)
