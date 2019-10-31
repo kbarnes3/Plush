@@ -1,7 +1,5 @@
-from fabric.api import run, sudo
-from fabric.contrib.files import exists
-
-from .permissions import make_directory, set_permissions_directory
+from fabric.connection import Connection
+from patchwork.files import directory, exists
 
 
 DEFAULT_KEY_DIRECTORY = '/var/deploykeys'
@@ -14,10 +12,9 @@ def get_keyfile(project_name, directory=DEFAULT_KEY_DIRECTORY, public=True):
     return keyfile
 
 
-def create_key(project_name, owning_group, directory=DEFAULT_KEY_DIRECTORY):
-    make_directory(owning_group, directory, mod='600')
-    keyfile = get_keyfile(project_name, directory, public=False)
-    if exists(keyfile, use_sudo=True):
-        sudo('rm {0}'.format(keyfile))
-    sudo('ssh-keygen -t rsa -b 4096 -C "{0}" -f {1}'.format(project_name, keyfile))
-    set_permissions_directory(directory, owning_group, mod='600')
+def create_key(conn: Connection, project_name, owning_group, path=DEFAULT_KEY_DIRECTORY):
+    directory(conn, path, user=owning_group, group=owning_group, mode='600', sudo=True)
+    keyfile = get_keyfile(project_name, path, public=False)
+    if exists(conn, keyfile, sudo=True):
+        conn.sudo('rm {0}'.format(keyfile))
+    conn.sudo('ssh-keygen -t rsa -b 4096 -C "{0}" -f {1}'.format(project_name, keyfile))

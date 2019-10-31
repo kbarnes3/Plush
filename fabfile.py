@@ -1,12 +1,13 @@
-from fabric.api import env
+from fabric import task
+from fabric.config import Config
 
-env.use_ssh_config = True  # This makes it easier to use key based authentication
 
 
-def setup_user(user, no_sudo_passwd='', public_key_file=''):
+@task
+def setup_user(conn, user, public_key_file=None, no_sudo_passwd=False):
     from plush.fabric_commands import prepare_user
 
-    messages = prepare_user(user, 'webadmin', add_sudo=True, no_sudo_passwd=bool(no_sudo_passwd))
+    messages = prepare_user(conn, user, 'webadmin', add_sudo=True, no_sudo_passwd=no_sudo_passwd)
     add_authorized_key(user, public_key_file)
     if messages:
         print("========================================")
