@@ -1,6 +1,4 @@
 from fabric import task
-from fabric.config import Config
-
 
 
 @task
