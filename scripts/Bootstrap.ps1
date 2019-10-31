@@ -24,6 +24,11 @@ Write-Status "Updating requirements"
 Write-Status "Updating upgradable requirements"
 & pip install --upgrade -r (Join-Path $project_root "upgrade-requirements.txt") $quiet
 
+if ($Global:plush_functions) {
+    # Define or update the console scripts if we want them
+    . $PSScriptRoot\Console-Scripts.ps1
+}
+
 Pop-Location
 
 if (-Not $already_activated) {

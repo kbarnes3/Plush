@@ -8,6 +8,8 @@ $project_root = Split-Path $PSScriptRoot
 . $PSScriptRoot\Write-Status.ps1
 
 Write-Status "Plush console"
+# Set a global variable to indicate we want to set and update some useful console functions
+$Global:plush_functions = $true
 
 $venv = Join-Path $project_root "venv\scripts\Activate.ps1"
 if (Test-Path $venv) {
@@ -23,23 +25,5 @@ else {
 }
 
 . $PSScriptRoot\Ensure-Venv.ps1 | Out-Null
-
-# Register helper functions
-Set-Item function:global:Invoke-Manage {
-    . $PSScriptRoot\Invoke-Manage.ps1 @args
-} -Force
-
-Set-Item function:global:Invoke-Fabric {
-    . $PSScriptRoot\Invoke-Fabric.ps1 @args
-} -Force
-
-Set-Item function:global:Start-Server {
-    Invoke-Manage runserver @args
-} -Force
-
-Set-Item function:global:Update-DevEnvironment {
-    param([switch]$Verbose)
-    . $PSScriptRoot\Update.ps1 -Verbose:$Verbose
-} -Force
 
 Write-Status "Plush ready"
