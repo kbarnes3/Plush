@@ -35,10 +35,10 @@ def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo
 
     if no_sudo_passwd:
         sudoers_file = '/etc/sudoers.d/{0}-plush'.format(user)
-        if exists(conn, sudoers_file, True):
+        if exists(conn, sudoers_file, sudo=True):
             conn.sudo('rm {0}'.format(sudoers_file))
         conn.sudo("echo '{0} ALL=(ALL:ALL) NOPASSWD:ALL' | sudo EDITOR='tee -a' visudo -f {1}"
-                  .format(user, sudoers_file))
+                  .format(user, sudoers_file), pty=True)
 
     if add_sudo and not no_sudo_passwd:
         messages += 'Ensure {0} has a secure password configured ' \
