@@ -1,32 +1,48 @@
 # Runs Fabric from a consistent context
 # Any arguments passed into this function are passed to fab
 Set-Item function:global:Invoke-Fabric {
+    [CmdletBinding(DefaultParameterSetName="none")]
     param(
-        [Parameter(Position=0, Mandatory=$true)]
+        [Parameter(Position=0, Mandatory=$true, ParameterSetName="run")]
         [string]$Hosts,
+        [Parameter(ParameterSetName="run")]
         [switch]$PromptForLoginPassword,
+        [Parameter(ParameterSetName="run")]
         [switch]$PromptForSudoPassword,
-        [Parameter(Position=1, ValueFromRemainingArguments)]
-        [string[]]$FabricTask
+        [Parameter(Position=1, ValueFromRemainingArguments, ParameterSetName="run")]
+        [string[]]$FabricTask,
+        [Parameter(ParameterSetName="list")]
+        [switch]$ListTasks
     )
-
+    $listFunctions = $False
     $project_root = Split-Path $PSScriptRoot
     $already_activated = . $PSScriptRoot\Ensure-Venv.ps1
 
     $fabric = Join-Path $project_root "venv\Scripts\fab.exe"
-    $fabricArgs = @("--hosts", $Hosts)
-    if ($PromptForLoginPassword) {
-        $fabricArgs += "--prompt-for-login-password"
+    if ($ListTasks -or -not $Hosts) {
+        $listFunctions = $True
+        $fabricArgs = "--list"
+    } else {
+        $fabricArgs = @("--hosts", $Hosts)
+        if ($PromptForLoginPassword) {
+            $fabricArgs += "--prompt-for-login-password"
+        }
+        if ($PromptForSudoPassword) {
+            $fabricArgs += "--prompt-for-sudo-password "
+        }
+        $fabricArgs += $FabricTask
     }
-    if ($PromptForSudoPassword) {
-        $fabricArgs += "--prompt-for-sudo-password "
-    }
-    
-    $fabricArgs += $FabricTask
 
     Push-Location $project_root
     Start-Process $fabric -ArgumentList $fabricArgs -NoNewWindow -Wait
     Pop-Location
+
+    if ($listFunctions) {
+        Write-Host "Fabric tasks are also available as PowerShell functions:`n"
+        $fabricFunctions = Get-Item function:Fabric-*
+        $fabricFunctions | ForEach-Object { Write-Host "  $($_.Name)" }
+        Write-Host ""
+    }
 
     if (-Not $already_activated) {
         deactivate
