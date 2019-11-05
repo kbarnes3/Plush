@@ -6,19 +6,19 @@ def setup_user(conn, user, public_key_file=None, no_sudo_passwd=False):
     from plush.fabric_commands import prepare_user
 
     messages = prepare_user(conn, user, 'webadmin', add_sudo=True, no_sudo_passwd=no_sudo_passwd)
-    add_authorized_key(user, public_key_file)
+    add_authorized_key(conn, user, public_key_file)
     if messages:
         print("========================================")
         print(messages)
         print("========================================")
 
 
-def add_authorized_key(user, public_key_file):
+def add_authorized_key(conn, user, public_key_file):
     import plush.fabric_commands
     if public_key_file:
         with open(public_key_file, 'r') as public_key:
             public_key_contents = public_key.read()
-        plush.fabric_commands.add_authorized_key(user, public_key_contents)
+        plush.fabric_commands.add_authorized_key(conn, user, public_key_contents)
 
 
 def test_deploy():

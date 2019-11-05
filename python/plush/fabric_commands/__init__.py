@@ -65,4 +65,4 @@ def add_authorized_key(conn: Connection, user, public_key):
     conn.sudo('touch /home/{0}/.ssh/authorized_keys'.format(user), user=user)
     conn.sudo('chmod -R go= /home/{0}/.ssh'.format(user), user=user)
     conn.sudo('echo "{0}" | tee -a /home/{1}/.ssh/authorized_keys'
-              .format(public_key, user), user=user)
+              .format(public_key, user), user=user, pty=True)
