@@ -47,6 +47,7 @@ Set-Item function:global:Fabric-SetupUser {
     $setupUserArgs = @("setup-user")
     $setupUserArgs += $User
     if ($PublicKeyFile) {
+        $setupUserArgs += "--public-key-file"
         $setupUserArgs += $PublicKeyFile
     }
     if ($NoSudoPasswd) {
