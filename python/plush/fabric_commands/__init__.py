@@ -16,7 +16,7 @@ def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo
         pass
 
     if not user_exists:
-        conn.sudo('adduser --disabled-password {0}'.format(user))
+        conn.sudo('adduser --disabled-password {0}'.format(user), pty=True)
 
     group_exists = False
     try:
@@ -64,5 +64,5 @@ def add_authorized_key(conn: Connection, user, public_key):
     conn.sudo('mkdir -p /home/{0}/.ssh'.format(user), user=user)
     conn.sudo('touch /home/{0}/.ssh/authorized_keys'.format(user), user=user)
     conn.sudo('chmod -R go= /home/{0}/.ssh'.format(user), user=user)
-    conn.sudo('echo "{0}" | tee -a /home/{1}/.ssh/authorized_keys'
-              .format(public_key, user), user=user, pty=True)
+    conn.sudo('echo "{0}" | sudo tee -a /home/{1}/.ssh/authorized_keys'
+              .format(public_key, user), pty=True)
