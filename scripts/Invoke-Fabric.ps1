@@ -6,6 +6,8 @@ Set-Item function:global:Invoke-Fabric {
         [Parameter(Position=0, Mandatory=$true, ParameterSetName="run")]
         [string]$Hosts,
         [Parameter(ParameterSetName="run")]
+        [switch]$PromptForPassphrase,
+        [Parameter(ParameterSetName="run")]
         [switch]$PromptForLoginPassword,
         [Parameter(ParameterSetName="run")]
         [switch]$PromptForSudoPassword,
@@ -24,11 +26,14 @@ Set-Item function:global:Invoke-Fabric {
         $fabricArgs = "--list"
     } else {
         $fabricArgs = @("--hosts", $Hosts)
+        if ($PromptForPassphrase) {
+            $fabricArgs += "--prompt-for-passphrase"
+        }
         if ($PromptForLoginPassword) {
             $fabricArgs += "--prompt-for-login-password"
         }
         if ($PromptForSudoPassword) {
-            $fabricArgs += "--prompt-for-sudo-password "
+            $fabricArgs += "--prompt-for-sudo-password"
         }
         $fabricArgs += $FabricTask
     }
@@ -53,6 +58,7 @@ Set-Item function:global:Fabric-SetupUser {
     param(
         [Parameter(Mandatory=$true)]
         [string]$Hosts,
+        [switch]$PromptForPassphrase,
         [switch]$PromptForLoginPassword,
         [switch]$PromptForSudoPassword,
         [Parameter(Mandatory=$true)]
@@ -61,6 +67,7 @@ Set-Item function:global:Fabric-SetupUser {
         [switch]$NoSudoPasswd
     )
     $setupUserArgs = @("setup-user")
+    $setupUserArgs += "--user"
     $setupUserArgs += $User
     if ($PublicKeyFile) {
         $setupUserArgs += "--public-key-file"
@@ -70,7 +77,26 @@ Set-Item function:global:Fabric-SetupUser {
         $setupUserArgs += "--no-sudo-passwd"
     }
 
-    Invoke-Fabric $Hosts -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $setupUserArgs
+    Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $setupUserArgs
+} -Force
 
+Set-Item function:global:Fabric-AddAuthorizedKey {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Hosts,
+        [switch]$PromptForPassphrase,
+        [switch]$PromptForLoginPassword,
+        [switch]$PromptForSudoPassword,
+        [Parameter(Mandatory=$true)]
+        [string]$User,
+        [Parameter(Mandatory=$true)]
+        [string]$PublicKeyFile
+    )
+    $addAuthorizedKeyArgs = @("add-authorized-key")
+    $addAuthorizedKeyArgs += "--user"
+    $addAuthorizedKeyArgs += $User
+    $addAuthorizedKeyArgs += "--public-key-file"
+    $addAuthorizedKeyArgs += $PublicKeyFile
 
+    Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $addAuthorizedKeyArgs
 } -Force

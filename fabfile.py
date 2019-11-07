@@ -13,6 +13,7 @@ def setup_user(conn, user, public_key_file=None, no_sudo_passwd=False):
         print("========================================")
 
 
+@task
 def add_authorized_key(conn, user, public_key_file):
     import plush.fabric_commands
     if public_key_file:
