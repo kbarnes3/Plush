@@ -1,5 +1,6 @@
 from fabric.connection import Connection
 from invoke import UnexpectedExit
+from invoke.watchers import Responder
 from patchwork.files import exists
 
 from .ssh_key import get_keyfile
@@ -16,7 +17,9 @@ def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo
         pass
 
     if not user_exists:
-        conn.sudo('adduser --disabled-password {0}'.format(user), pty=True)
+        # Handle all the prompts for information about the new user like their name and room number
+        responder = Responder(r'.*\[.*\].*', '\n')
+        conn.sudo('adduser --disabled-password {0}'.format(user), pty=True, watchers=[responder])
 
     group_exists = False
     try:
@@ -47,10 +50,10 @@ def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo
                     'the no_sudo_passwd=True parameter\n'
     if not user_exists:
         messages += 'The {0} account was created without a password set. ' \
-                    'A superuser will need to manually run ' \
-                    '\"sudo passwd {0}\"\n'.format(user)
-        messages += 'Where possible, consider not setting a password and ' \
-                    'instead using key based authentication.\n'
+                    'If a password is needed, a superuser will need to manually run: \n' \
+                    'sudo passwd {0}\n' \
+                    'Where possible, consider not setting a password and ' \
+                    'instead using key based authentication.\n'.format(user)
 
     if messages:
         # Every message line ends in a newline.
