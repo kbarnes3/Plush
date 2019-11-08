@@ -44,7 +44,7 @@ Set-Item function:global:Invoke-Fabric {
 
     if ($listFunctions) {
         Write-Host "Fabric tasks are also available as PowerShell functions:`n"
-        $fabricFunctions = Get-Item function:Fabric-*
+        $fabricFunctions = Get-Item function:Fabric-* | Sort-Object -Property Name
         $fabricFunctions | ForEach-Object { Write-Host "  $($_.Name)" }
         Write-Host ""
     }
