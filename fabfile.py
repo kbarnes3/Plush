@@ -22,19 +22,17 @@ def add_authorized_key(conn, user, public_key_file):
         plush.fabric_commands.add_authorized_key(conn, user, public_key_contents)
 
 
-def test_deploy():
-    from fabric.api import sudo
-    from fabric.contrib.files import exists
+@task
+def test_deploy(conn, repo):
     from plush.repo_keys import add_repo_key
     from plush.fabric_commands.git import clone
     from plush.fabric_commands.permissions import make_directory
     from plush.fabric_commands.ssh_key import create_key
 
-    repo_full_name = 'kbarnes3/Plush'
     owning_group = 'webadmin'
-    create_key(repo_full_name, owning_group)
-    add_repo_key(repo_full_name)
+    create_key(repo, owning_group)
+    add_repo_key(repo)
     make_directory(owning_group, '/var/src')
     if exists('/var/src/test'):
         sudo('rm -rf /var/src/test')
-    clone(repo_full_name, '/var/src/test', skip_strict_key_checking=True)
+    clone(repo, '/var/src/test', skip_strict_key_checking=True)

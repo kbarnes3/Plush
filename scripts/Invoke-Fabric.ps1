@@ -100,3 +100,20 @@ Set-Item function:global:Fabric-AddAuthorizedKey {
 
     Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $addAuthorizedKeyArgs
 } -Force
+
+Set-Item function:global:Fabric-TestDeploy {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Hosts,
+        [switch]$PromptForPassphrase,
+        [switch]$PromptForLoginPassword,
+        [switch]$PromptForSudoPassword,
+        [Parameter(Mandatory=$true)]
+        [string]$Repo
+    )
+    $testDeployArgs = @("test-deploy")
+    $testDeployArgs += "--repo"
+    $testDeployArgs += $Repo
+
+    Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $testDeployArgs
+} -Force

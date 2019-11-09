@@ -1,4 +1,3 @@
-from fabric.api import run, sudo
 from github import GithubException
 from .oauth_flow import get_api
 from .fabric_commands import get_keyfile
