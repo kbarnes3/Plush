@@ -58,13 +58,13 @@ Set-Item function:global:Fabric-SetupUser {
     param(
         [Parameter(Mandatory=$true)]
         [string]$Hosts,
-        [switch]$PromptForPassphrase,
-        [switch]$PromptForLoginPassword,
-        [switch]$PromptForSudoPassword,
         [Parameter(Mandatory=$true)]
         [string]$User,
         [string]$PublicKeyFile,
-        [switch]$NoSudoPasswd
+        [switch]$NoSudoPasswd,
+        [switch]$PromptForPassphrase,
+        [switch]$PromptForLoginPassword,
+        [switch]$PromptForSudoPassword
     )
     $setupUserArgs = @("setup-user")
     $setupUserArgs += "--user"
@@ -84,13 +84,13 @@ Set-Item function:global:Fabric-AddAuthorizedKey {
     param(
         [Parameter(Mandatory=$true)]
         [string]$Hosts,
-        [switch]$PromptForPassphrase,
-        [switch]$PromptForLoginPassword,
-        [switch]$PromptForSudoPassword,
         [Parameter(Mandatory=$true)]
         [string]$User,
         [Parameter(Mandatory=$true)]
-        [string]$PublicKeyFile
+        [string]$PublicKeyFile,
+        [switch]$PromptForPassphrase,
+        [switch]$PromptForLoginPassword,
+        [switch]$PromptForSudoPassword
     )
     $addAuthorizedKeyArgs = @("add-authorized-key")
     $addAuthorizedKeyArgs += "--user"
@@ -105,11 +105,11 @@ Set-Item function:global:Fabric-TestDeploy {
     param(
         [Parameter(Mandatory=$true)]
         [string]$Hosts,
+        [Parameter(Mandatory=$true)]
+        [string]$Repo,
         [switch]$PromptForPassphrase,
         [switch]$PromptForLoginPassword,
-        [switch]$PromptForSudoPassword,
-        [Parameter(Mandatory=$true)]
-        [string]$Repo
+        [switch]$PromptForSudoPassword
     )
     $testDeployArgs = @("test-deploy")
     $testDeployArgs += "--repo"

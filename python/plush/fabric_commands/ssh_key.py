@@ -1,4 +1,5 @@
 from fabric.connection import Connection
+from invoke.watchers import Responder
 from patchwork.files import directory, exists
 
 
@@ -13,8 +14,11 @@ def get_keyfile(project_name, directory=DEFAULT_KEY_DIRECTORY, public=True):
 
 
 def create_key(conn: Connection, project_name, owning_group, path=DEFAULT_KEY_DIRECTORY):
-    directory(conn, path, user=owning_group, group=owning_group, mode='600', sudo=True)
+    directory(conn, path, group=owning_group, mode='600', sudo=True)
     keyfile = get_keyfile(project_name, path, public=False)
     if exists(conn, keyfile, sudo=True):
         conn.sudo('rm {0}'.format(keyfile))
-    conn.sudo('ssh-keygen -t rsa -b 4096 -C "{0}" -f {1}'.format(project_name, keyfile))
+    # Automatically provide an empty passphrase
+    responder = Responder(r'passphrase.*:', '\n')
+    conn.sudo('ssh-keygen -t rsa -b 4096 -C "{0}" -f {1}'.format(project_name, keyfile),
+              watchers=[responder])

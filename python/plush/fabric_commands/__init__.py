@@ -1,3 +1,5 @@
+from typing import Iterable
+
 from fabric.connection import Connection
 from invoke import UnexpectedExit
 from invoke.watchers import Responder
@@ -69,3 +71,9 @@ def add_authorized_key(conn: Connection, user, public_key):
     conn.sudo('chmod -R go= /home/{0}/.ssh'.format(user), user=user)
     conn.sudo('echo "{0}" | sudo tee -a /home/{1}/.ssh/authorized_keys'
               .format(public_key, user), pty=True)
+
+
+def install_packages(conn: Connection, packages: Iterable[str]):
+    apt = "DEBIAN_FRONTEND=noninteractive apt-get install -y {}"
+    for package in packages:
+        conn.sudo(apt.format(package))

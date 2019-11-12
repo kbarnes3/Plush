@@ -1,3 +1,6 @@
+from typing import Optional
+
+from fabric.connection import Connection
 from github import GithubException
 from .oauth_flow import get_api
 from .fabric_commands import get_keyfile
@@ -16,19 +19,23 @@ def list_repo_keys(repo_full_name):
         print('Failed with {0}, data: {1}'.format(exception.status, exception.data))
 
 
-def add_repo_key(repo_full_name, key_name=''):
+def add_repo_key(conn: Connection, repo_full_name: str, key_name: Optional[str] = None):
     public_keyfile = get_keyfile(repo_full_name)
-    public_keyfile_contents = sudo('cat {0}'.format(public_keyfile))
+    public_keyfile_contents = conn.sudo('cat {0}'.format(public_keyfile)).stdout
+    public_keyfile_contents = public_keyfile_contents.rstrip()
 
-    if key_name == '':
+    if not key_name:
         # Default the key_name to the hostname we are connected to
-        key_name = run('hostname')
+        key_name = conn.run('hostname').stdout
+        key_name = key_name.rstrip()
 
     api = get_api()
 
     repo = api.get_repo(repo_full_name)
 
     try:
+        print('key_name: "{0}"'.format(key_name))
         repo.create_key(key_name, public_keyfile_contents, read_only=True)
     except GithubException as exception:
         print('Failed with {0}, data: {1}'.format(exception.status, exception.data))
+        raise exception
