@@ -1,4 +1,3 @@
-import os
 from github import Github, GithubException
 from oauth2client.client import OAuth2WebServerFlow
 from oauth2client.contrib import keyring_storage
