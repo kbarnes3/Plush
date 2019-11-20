@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-18.04'
 strategy:
   matrix:
     Python36:
@@ -23,3 +23,11 @@ steps:
     python -m pip install --upgrade pip
     pip install -r requirements.txt
   displayName: 'Install dependencies'
+
+- script: |
+    fab -l
+  displayName: 'Running fab -l'
+
+- script: |
+    auth --help
+  displayName: 'Running auth --help'
