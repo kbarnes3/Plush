@@ -31,3 +31,11 @@ steps:
 - script: |
     auth --help
   displayName: 'Running auth --help'
+
+- script: |
+    flake8 fabfile.py
+  displayName: 'Running flake8 fabfile.py'
+
+- script: |
+    flake8 python
+  displayName: 'Running flake8 python'

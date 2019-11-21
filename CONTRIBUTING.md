@@ -40,7 +40,10 @@ We use GitHub issues to track public bugs. Report a bug by [opening a new issue]
 This project has a suite of verification that runs on every Pull Request using [Azure Pipelines](https://kbarnes3.visualstudio.com/Plush/). This verification includes running some sanity checks and linting, however most testing is manual. See TESTING.md for the details of how to test this project.
 
 ## Linting
-Linting is coming soon.
+Linting uses Flake8. The `Invoke-Flake8` PowerShell function will output any linting errors.
+Linting can also be done manually. From the root of the repo run the following commands:
+- `flake8 fabfile.py`
+- `flake8 python`
 
 ## References
 This document was adapted from this [gist](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62).

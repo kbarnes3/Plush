@@ -8,6 +8,9 @@ from patchwork.files import exists
 from .ssh_key import get_keyfile
 
 
+__all__ = ['prepare_user', 'add_authorized_key', 'install_packages', 'get_keyfile']
+
+
 def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo_passwd=False):
     messages = ''
     user_exists = False
