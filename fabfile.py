@@ -1,3 +1,4 @@
+import os
 from fabric import task
 from patchwork.files import directory, exists
 
