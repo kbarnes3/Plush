@@ -6,7 +6,7 @@ description = "Helper library for Fabric to simplify creating and managing GitHu
 long_description = open('README.rst').read()
 
 setuptools.setup(name='plush-fabric',
-                 version='0.5.1',
+                 version='0.5.2',
                  description=description,
                  long_description=long_description,
                  author='Kevin Barnes',
