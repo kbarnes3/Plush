@@ -1,10 +1,23 @@
-from fabric import task
-from patchwork.files import exists
+from fabric import Task
+from fabric.connection import Connection
+from patchwork.files import exists as patchwork_exists
+
+import plush.fabric_commands
+from plush.fabric_commands import prepare_user
+from plush.fabric_commands.git import clone
+from plush.fabric_commands.permissions import ensure_directory
+from plush.fabric_commands.ssh_key import create_key
+from plush.repo_keys import add_repo_key
 
 
-@task
+def exists(conn: Connection, path: str) -> bool:
+    # pylint doesn't understand the @set_runner decorator
+    # create a wrapper so we only have to suppress the error once
+    return patchwork_exists(conn, path) # pylint: disable=E1120
+
+
+@Task
 def setup_user(conn, user, public_key_file=None, no_sudo_passwd=False):
-    from plush.fabric_commands import prepare_user
 
     messages = prepare_user(conn, user, 'webadmin', add_sudo=True, no_sudo_passwd=no_sudo_passwd)
     add_authorized_key(conn, user, public_key_file)
@@ -14,21 +27,29 @@ def setup_user(conn, user, public_key_file=None, no_sudo_passwd=False):
         print("========================================")
 
 
-@task
+@Task
 def add_authorized_key(conn, user, public_key_file):
-    import plush.fabric_commands
     if public_key_file:
-        with open(public_key_file, 'r') as public_key:
+        with open(public_key_file, 'r', encoding='utf-8') as public_key:
             public_key_contents = public_key.read()
         plush.fabric_commands.add_authorized_key(conn, user, public_key_contents)
 
+@Task
+def disable_ssh_passwords(conn):
+    sshd_config = '/etc/ssh/sshd_config'
+    conn.sudo(f"sed -i '/^ *PasswordAuthentication/d' {sshd_config}")
+    conn.sudo(f'echo "PasswordAuthentication no" | sudo tee -a {sshd_config}', pty=True)
+    print("========================================")
+    print("Password authentication disabled for SSH.")
+    print("Restart the SSH daemon by logging into the console and running:")
+    print("sudo service ssh restart")
+    print("Alternatively, reboot the server if console access isn't readily available.")
+    print("========================================")
 
-@task
+
+@Task
 def test_deploy(conn, repo):
-    from plush.repo_keys import add_repo_key
-    from plush.fabric_commands.git import clone
-    from plush.fabric_commands.permissions import ensure_directory
-    from plush.fabric_commands.ssh_key import create_key
+
 
     owning_group = 'webadmin'
     create_key(conn, repo, owning_group)
