@@ -24,7 +24,7 @@ setuptools.setup(name='plush-fabric',
                  ],
                  keywords='fabric github deployment',
                  install_requires=['oauth2client>=3.0.0', 'PyGithub>=1.3.8', 'keyring>=12.0.0', 'fabric>=2.5.0',
-                                   'patchwork>=1.0.1'],
+                                   'patchwork>=1.0.1', 'colorama>=0.4'],
                  extras_require={
                      'test': ['pylint'],
                      'publish': ['build', 'twine']

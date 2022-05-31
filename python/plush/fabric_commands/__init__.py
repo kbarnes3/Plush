@@ -1,11 +1,18 @@
 from typing import Iterable
 
+from colorama import init, Fore, Style
+from colorama.initialise import orig_stdout
 from fabric.connection import Connection
 from invoke import UnexpectedExit
 from invoke.watchers import Responder
 
 from .permissions import _exists
 from .ssh_key import get_keyfile
+
+
+def _ensure_colorama_init():
+    if not orig_stdout:
+        init()
 
 
 def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo_passwd=False):
@@ -74,6 +81,8 @@ def add_authorized_key(conn: Connection, user, public_key):
 
 
 def install_packages(conn: Connection, packages: Iterable[str]):
+    _ensure_colorama_init()
     apt = "DEBIAN_FRONTEND=noninteractive apt-get install -y {}"
     for package in packages:
+        print(Fore.GREEN + f'Installing {package}' + Style.RESET_ALL)
         conn.sudo(apt.format(package))

@@ -55,7 +55,6 @@ def disable_ssh_passwords(conn):
 
 @Task
 def test_deploy(conn, repo):
-    plush.fabric_commands.install_packages(conn, ['git'])
     owning_group = 'webadmin'
     create_key(conn, repo, owning_group)
     add_repo_key(conn, repo)
