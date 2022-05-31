@@ -7,11 +7,11 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-18.04'
+  vmImage: 'ubuntu-latest'
 strategy:
   matrix:
-    Python36:
-      python.version: '3.6'
+    Python310:
+      python.version: '3.10'
 
 steps:
 - task: UsePythonVersion@0
@@ -33,9 +33,9 @@ steps:
   displayName: 'Running auth --help'
 
 - script: |
-    flake8 fabfile.py
-  displayName: 'Running flake8 fabfile.py'
+    pylint fabfile
+  displayName: 'Running pylint fabfile'
 
 - script: |
-    flake8 python
-  displayName: 'Running flake8 python'
+    pylint python/plush
+  displayName: 'Running pylint python/plush'
