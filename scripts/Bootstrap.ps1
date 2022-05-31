@@ -29,9 +29,7 @@ Write-Status "Updating pip"
 Write-Status "Updating pip-tools"
 & python -m pip install --upgrade pip-tools $quiet
 Write-Status "Updating requirements"
-& pip install -r (Join-Path $project_root "requirements.txt") $quiet
-Write-Status "Updating upgradable requirements"
-& pip install --upgrade -r (Join-Path $project_root "upgrade-requirements.txt") $quiet
+& pip-sync .\win64-py310-requirements.txt $quiet
 
 if ($Global:console_functions) {
     # Define or update the console scripts if we want them
