@@ -16,12 +16,12 @@ def list_repo_keys(repo_full_name):
         for key in deploy_keys:
             print(key.title)
     except GithubException as exception:
-        print('Failed with {0}, data: {1}'.format(exception.status, exception.data))
+        print(f'Failed with {exception.status}, data: {exception.data}')
 
 
 def add_repo_key(conn: Connection, repo_full_name: str, key_name: Optional[str] = None):
     public_keyfile = get_keyfile(repo_full_name)
-    public_keyfile_contents = conn.sudo('cat {0}'.format(public_keyfile)).stdout
+    public_keyfile_contents = conn.sudo(f'cat {public_keyfile}').stdout
     public_keyfile_contents = public_keyfile_contents.rstrip()
 
     if not key_name:
@@ -34,8 +34,8 @@ def add_repo_key(conn: Connection, repo_full_name: str, key_name: Optional[str] 
     repo = api.get_repo(repo_full_name)
 
     try:
-        print('key_name: "{0}"'.format(key_name))
+        print(f'key_name: "{key_name}"')
         repo.create_key(key_name, public_keyfile_contents, read_only=True)
     except GithubException as exception:
-        print('Failed with {0}, data: {1}'.format(exception.status, exception.data))
+        print(f'Failed with {exception.status}, data: {exception.data}')
         raise exception

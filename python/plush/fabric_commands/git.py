@@ -8,8 +8,5 @@ def clone(conn: Connection, repo_full_name: str, path: str, skip_strict_key_chec
     keyfile = get_keyfile(repo_full_name, public=False)
     conn.sudo('git config --system protocol.ext.allow always')
     strict_key_checking = '-o StrictHostKeyChecking=no ' if skip_strict_key_checking else ''
-    conn.sudo("git clone 'ext::ssh -i {0} {1}git@github.com %S {2}.git' {3}".format(
-        keyfile,
-        strict_key_checking,
-        repo_full_name,
-        path))
+    conn.sudo(f"git clone 'ext::ssh -i {keyfile} {strict_key_checking}git@github.com %S " \
+              f"{repo_full_name}.git' {path}")

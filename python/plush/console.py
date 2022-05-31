@@ -10,7 +10,8 @@ def auth_entry():
     verify_choice = 'verify'
     delete_choice = 'delete'
     parser.add_argument('action', choices=[auth_choice, verify_choice, delete_choice],
-                        help='Get authorization, verify existing authorization, or remove your local authorization',
+                        help='Get authorization, verify existing authorization, ' +
+                             'or remove your local authorization',
                         nargs='?',
                         default=auth_choice)
     args = parser.parse_args(argv[1:])
@@ -26,7 +27,8 @@ def auth_entry():
 
 
 def list_keys_entry():
-    parser = ArgumentParser(prog='listkeys', description='Lists the deploy keys for the given repro')
+    parser = ArgumentParser(prog='listkeys',
+                            description='Lists the deploy keys for the given repro')
     parser.add_argument('repo_name', help='The full name of the repo (e.g., octocat/Hello-World)')
     args = parser.parse_args(argv[1:])
     repo_name = args.repo_name
