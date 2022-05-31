@@ -17,10 +17,16 @@ def exists(conn: Connection, path: str) -> bool:
 
 
 @Task
-def setup_user(conn, user, public_key_file=None, no_sudo_passwd=False):
+def setup_user(conn, user, disable_sudo_passwd=False, set_public_key_file=None):
+    messages = plush.fabric_commands.prepare_user(
+        conn,
+        user,
+        'webadmin',
+        add_sudo=True,
+        no_sudo_passwd=disable_sudo_passwd)
+    add_authorized_key(conn, user, set_public_key_file)
 
-    messages = prepare_user(conn, user, 'webadmin', add_sudo=True, no_sudo_passwd=no_sudo_passwd)
-    add_authorized_key(conn, user, public_key_file)
+
     if messages:
         print("========================================")
         print(messages)
@@ -28,9 +34,9 @@ def setup_user(conn, user, public_key_file=None, no_sudo_passwd=False):
 
 
 @Task
-def add_authorized_key(conn, user, public_key_file):
-    if public_key_file:
-        with open(public_key_file, 'r', encoding='utf-8') as public_key:
+def add_authorized_key(conn, user, set_public_key_file):
+    if set_public_key_file:
+        with open(set_public_key_file, 'r', encoding='utf-8') as public_key:
             public_key_contents = public_key.read()
         plush.fabric_commands.add_authorized_key(conn, user, public_key_contents)
 
@@ -49,8 +55,7 @@ def disable_ssh_passwords(conn):
 
 @Task
 def test_deploy(conn, repo):
-
-
+    plush.fabric_commands.install_packages(conn, ['git'])
     owning_group = 'webadmin'
     create_key(conn, repo, owning_group)
     add_repo_key(conn, repo)
