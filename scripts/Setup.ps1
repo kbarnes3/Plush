@@ -22,9 +22,6 @@ if (Test-Path $venv) {
     Remove-Item -Recurse -Force -Path $venv
 }
 
-Write-Status "Creating venv in $venv"
-& py -3.6 -m venv $venv
-
 . $PSScriptRoot\Bootstrap.ps1 -Verbose
 
 . $PSScriptRoot\Ensure-Venv.ps1 | Out-Null

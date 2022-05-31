@@ -1,15 +1,14 @@
 . $PSScriptRoot\Invoke-Fabric.ps1
 
-$project_root = Split-Path $PSScriptRoot
-
 Set-Item function:global:Update-DevEnvironment {
     param([switch]$Verbose)
     . $PSScriptRoot\Update.ps1 -Verbose:$Verbose
 } -Force
 
-Set-Item function:global:Invoke-Flake8 {
-    Push-Location $project_root
-    & flake8.exe .\fabfile.py
-    & flake8.exe .\python
+Set-Item function:global:Upgrade-Requirements {
+    Push-Location $PSScriptRoot\..
+    & pip-compile --upgrade --output-file=win64-py310-requirements.txt '.\requirements.in'
     Pop-Location
+    Write-Host 'win64-py310-requirements.txt updated.'
+    Write-Host 'Run pip-sync win64-py310-requirements.txt to update your environment.'
 }
