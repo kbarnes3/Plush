@@ -9,7 +9,7 @@ To setup your dev environment
 -----------------------------
 
 1. Install all the required tools. This includes:  
-    a. The latest release of [Python 3.6](https://www.python.org/). Other versions of Python are not currently tested. Python 3.6 is used as it is the default version installed on Ubuntu 18.04 LTS.
+    a. The latest release of [Python 3.10](https://www.python.org/). Other versions of Python are not currently tested. Python 3.10 is used as it is the default version installed on Ubuntu 22.04 LTS.
     b. The latest release of [Git](http://git-scm.com/downloads).
 1. Clone the repo locally and open a PowerShell prompt in the root folder.
 1. Run scripts\Console.ps1. The first time this script is run, it will create a virtual env and install dependencies such as Fabric.

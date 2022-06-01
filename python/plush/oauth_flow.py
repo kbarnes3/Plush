@@ -13,11 +13,16 @@ TOKEN_URI = 'https://github.com/login/oauth/access_token'
 
 class AuthException(Exception):
     def __init__(self, message):
+        super().__init__(self)
         self.message = message
 
 
 def run_oauth_flow():
-    flow = OAuth2WebServerFlow(CLIENT_ID, CLIENT_SECRET, SCOPE, auth_uri=AUTH_URI, token_uri=TOKEN_URI)
+    flow = OAuth2WebServerFlow(CLIENT_ID,
+                               CLIENT_SECRET,
+                               SCOPE,
+                               auth_uri=AUTH_URI,
+                               token_uri=TOKEN_URI)
     storage = _get_storage()
     cred = run_flow(flow, storage)
 
@@ -25,8 +30,7 @@ def run_oauth_flow():
 
     if cred is not None:
         return cred.access_token
-    else:
-        return None
+    return None
 
 
 def get_api():
@@ -44,16 +48,17 @@ def verify_access_token():
     try:
         api = get_api()
     except AuthException as exception:
-        print('Error: {0}'.format(exception.message))
+        print(f'Error: {exception.message}')
         return False
 
     user = api.get_user()
 
     try:
-        print("Successfully authenticated as {0} (Name: '{1}' Email: '{2}')".format(user.login, user.name, user.email))
+        print(f"Successfully authenticated as {user.login} " +
+              f"(Name: '{user.name}' Email: '{user.email}')")
         return True
     except GithubException as exception:
-        print('Failed with {0}, data: {1}'.format(exception.status, exception.data))
+        print(f'Failed with {exception.status}, data: {exception.data}')
         print('Unable to verify local auth token. Run \'auth\' to reset')
 
     return False

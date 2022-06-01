@@ -9,7 +9,7 @@ $project_root = Split-Path $PSScriptRoot
 
 Write-Status "Plush console"
 # Set a global variable to indicate we want to set and update some useful console functions
-$Global:plush_functions = $true
+$Global:console_functions = $true
 
 $venv = Join-Path $project_root "venv\scripts\Activate.ps1"
 if (Test-Path $venv) {

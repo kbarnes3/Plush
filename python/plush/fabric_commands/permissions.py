@@ -1,31 +1,38 @@
 from typing import Optional
 from fabric.connection import Connection
+from patchwork.files import exists as patchwork_exists
+
+
+def _exists(conn: Connection, path: str, sudo: bool=False) -> bool:
+    # pylint doesn't understand the @set_runner decorator
+    # create a wrapper so we only have to suppress the error once
+    return patchwork_exists(conn, path, sudo=sudo) # pylint: disable=E1120
 
 
 def ensure_directory(conn: Connection,
                      directory: str,
                      owning_group: str,
                      mod: str = 'ug+rwX,o+rX,o-w'):
-    conn.sudo('mkdir -p {0}'.format(directory))
+    conn.sudo(f'mkdir -p {directory}')
     set_permissions_directory(conn, directory, group=owning_group, mod=mod)
 
 
-def set_permissions_directory(conn: Connection,
+def set_permissions_directory(conn: Connection, # pylint: disable=R0913
                               directory: str,
                               group: Optional[str] = None,
                               user: Optional[str] = None,
                               mod: str = '660',
                               setgid: bool = True):
     if group is not None:
-        conn.sudo('chgrp -R {0} {1}'.format(group, directory))
+        conn.sudo(f'chgrp -R {group} {directory}')
 
     if user is not None:
-        conn.sudo('chown -R {0} {1}'.format(user, directory))
+        conn.sudo(f'chown -R {user} {directory}')
 
-    conn.sudo('chmod -R {0} {1}'.format(mod, directory))
+    conn.sudo(f'chmod -R {mod} {directory}')
 
     if setgid:
-        conn.sudo('chmod -R g+s {0}'.format(directory))
+        conn.sudo(f'chmod -R g+s {directory}')
 
 
 def set_permissions_file(conn: Connection,
@@ -34,9 +41,9 @@ def set_permissions_file(conn: Connection,
                          group: Optional[str] = None,
                          mod: str = '644'):
     if group is not None:
-        conn.sudo('chgrp {0} {1}'.format(group, file))
+        conn.sudo(f'chgrp {group} {file}')
 
     if user is not None:
-        conn.sudo('chown {0} {1}'.format(user, file))
+        conn.sudo(f'chown {user} {file}')
 
-    conn.sudo('chmod {0} {1}'.format(mod, file))
+    conn.sudo(f'chmod {mod} {file}')

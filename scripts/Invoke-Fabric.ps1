@@ -60,8 +60,8 @@ Set-Item function:global:Fabric-SetupUser {
         [string]$Hosts,
         [Parameter(Mandatory=$true)]
         [string]$User,
-        [string]$PublicKeyFile,
-        [switch]$NoSudoPasswd,
+        [string]$SetPublicKeyFile,
+        [switch]$DisableSudoPasswd,
         [switch]$PromptForPassphrase,
         [switch]$PromptForLoginPassword,
         [switch]$PromptForSudoPassword
@@ -69,12 +69,12 @@ Set-Item function:global:Fabric-SetupUser {
     $setupUserArgs = @("setup-user")
     $setupUserArgs += "--user"
     $setupUserArgs += $User
-    if ($PublicKeyFile) {
-        $setupUserArgs += "--public-key-file"
-        $setupUserArgs += $PublicKeyFile
+    if ($SetPublicKeyFile) {
+        $setupUserArgs += "--set-public-key-file"
+        $setupUserArgs += $SetPublicKeyFile
     }
-    if ($NoSudoPasswd) {
-        $setupUserArgs += "--no-sudo-passwd"
+    if ($DisableSudoPasswd) {
+        $setupUserArgs += "--disable-sudo-passwd"
     }
 
     Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $setupUserArgs
@@ -95,10 +95,22 @@ Set-Item function:global:Fabric-AddAuthorizedKey {
     $addAuthorizedKeyArgs = @("add-authorized-key")
     $addAuthorizedKeyArgs += "--user"
     $addAuthorizedKeyArgs += $User
-    $addAuthorizedKeyArgs += "--public-key-file"
+    $addAuthorizedKeyArgs += "--set-public-key-file"
     $addAuthorizedKeyArgs += $PublicKeyFile
 
     Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $addAuthorizedKeyArgs
+} -Force
+
+Set-Item function:global:Fabric-DisableSshPasswords {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Hosts,
+        [switch]$PromptForPassphrase,
+        [switch]$PromptForLoginPassword,
+        [switch]$PromptForSudoPassword
+    )
+    $disableSshPasswordArgs = @("disable-ssh-passwords")
+    Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $disableSshPasswordArgs
 } -Force
 
 Set-Item function:global:Fabric-TestDeploy {
@@ -117,3 +129,25 @@ Set-Item function:global:Fabric-TestDeploy {
 
     Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $testDeployArgs
 } -Force
+
+Set-Item function:global:Fabric-CompileRequirements {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Hosts,
+        [switch]$Fresh,
+        [switch]$Upgrade,
+        [switch]$PromptForPassphrase,
+        [switch]$PromptForLoginPassword,
+        [switch]$PromptForSudoPassword
+    )
+
+    $compileArgs = @("compile-requirements")
+    if ($Fresh) {
+        $compileArgs += "--fresh"
+    }
+    if ($Upgrade) {
+        $compileArgs += "--upgrade"
+    }
+
+    Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $compileArgs
+}

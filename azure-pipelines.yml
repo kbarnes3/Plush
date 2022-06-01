@@ -4,14 +4,14 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
-- master
+- trunk
 
 pool:
-  vmImage: 'ubuntu-18.04'
+  vmImage: 'ubuntu-latest'
 strategy:
   matrix:
-    Python36:
-      python.version: '3.6'
+    Python310:
+      python.version: '3.10'
 
 steps:
 - task: UsePythonVersion@0
@@ -21,7 +21,8 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    pip install -r requirements.txt
+    python -m pip install --upgrade pip-tools
+    pip-sync ubuntu64-py310-requirements.txt
   displayName: 'Install dependencies'
 
 - script: |
@@ -33,9 +34,9 @@ steps:
   displayName: 'Running auth --help'
 
 - script: |
-    flake8 fabfile.py
-  displayName: 'Running flake8 fabfile.py'
+    pylint fabfile
+  displayName: 'Running pylint fabfile'
 
 - script: |
-    flake8 python
-  displayName: 'Running flake8 python'
+    pylint python/plush
+  displayName: 'Running pylint python/plush'
