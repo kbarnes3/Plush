@@ -118,6 +118,9 @@ def compile_requirements(conn, fresh=False, upgrade=False):
         conn.run(f'venv/bin/pip-compile {upgrade_flag} --output-file={requirements_txt} ' +
                  f'{requirements_in}')
 
+        # Substitute an absolute path to Plush with a relative one
+        conn.run(f"sed -i 's/file:\\/\\/\\/tmp\\/pip-tools\\/python/\\.\\/python/g' {requirements_txt}")
+
 
     transfer.get(f'{staging_dir}/{requirements_txt}', requirements_txt)
     print(Fore.GREEN + f'Updated {requirements_txt}')

@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=ubuntu64-py310-requirements.txt test-requirements.in
 #
--e file:///tmp/pip-tools/python
+-e ./python
     # via -r test-requirements.in
 astroid==2.11.5
     # via pylint
