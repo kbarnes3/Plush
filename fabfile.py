@@ -119,7 +119,8 @@ def compile_requirements(conn, fresh=False, upgrade=False):
                  f'{requirements_in}')
 
         # Substitute an absolute path to Plush with a relative one
-        conn.run(f"sed -i 's/file:\\/\\/\\/tmp\\/pip-tools\\/python/\\.\\/python/g' {requirements_txt}")
+        conn.run("sed -i 's/file:\\/\\/\\/tmp\\/pip-tools\\/python/\\.\\/python/g' " +
+                f"{requirements_txt}")
 
 
     transfer.get(f'{staging_dir}/{requirements_txt}', requirements_txt)
