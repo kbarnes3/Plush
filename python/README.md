@@ -1,7 +1,7 @@
 Plush
 =====
 
-A helper library for `Fabric <https://www.fabfile.org>`_ to simplify creating and managing GitHub deploy keys when deploying your GitHub-hosted
+A helper library for [Fabric](https://www.fabfile.org) to simplify creating and managing GitHub deploy keys when deploying your GitHub-hosted
 repository. Currently, Plush is only tested on Ubuntu 22.04 LTS.
 
 Plush aims to make deployments easier by:
@@ -19,10 +19,10 @@ To see this project in action, follow the directions in Setup-Dev-Environment.md
 
 Usage
 
-This project is intended to be used by projects that use or are considering `Fabric <https://www.fabfile.org>`_ for their deployments. Plush expects Fabric 2.0 or greater.
+This project is intended to be used by projects that use or are considering [Fabric](https://www.fabfile.org) for their deployments. Plush expects Fabric 2.0 or greater.
 In a project that uses Fabric, install Plush by running:
 
-pip install plush-fabric
+`pip install plush-fabric`
 
-To get started, see the fabfile.py in the `GitHub repo <https://github.com/kbarnes3/Plush>`_ for a minimal usage of Plush.
-For a more complete example, see my `BaseDjangoAngular template <https://github.com/kbarnes3/BaseDjangoAngular>`_.
+To get started, see the `fabfile.py` in the [GitHub repo](https://github.com/kbarnes3/Plush) for a minimal usage of Plush.
+For a more complete example, see my [BaseDjangoAngular template](https://github.com/kbarnes3/BaseDjangoAngular).

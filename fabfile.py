@@ -90,13 +90,15 @@ def compile_requirements(conn, fresh=False, upgrade=False):
 
     requirements_in = 'test-requirements.in'
     setup_py = 'setup.py'
-    readme_rst = 'README.rst'
+    setup_cfg = 'setup.cfg'
+    readme_md = 'README.md'
     requirements_txt = 'ubuntu64-py310-requirements.txt'
 
     transfer = Transfer(conn)
     transfer.put(requirements_in, f'{staging_dir}/{requirements_in}')
     transfer.put(f'python/{setup_py}', f'{staging_python_dir}/{setup_py}')
-    transfer.put(f'python/{readme_rst}', f'{staging_python_dir}/{readme_rst}')
+    transfer.put(f'python/{setup_cfg}', f'{staging_python_dir}/{setup_cfg}')
+    transfer.put(f'python/{readme_md}', f'{staging_python_dir}/{readme_md}')
 
     if not fresh:
         transfer.put(requirements_txt, f'{staging_dir}/{requirements_txt}')
