@@ -6,22 +6,22 @@
 #
 -e ./python
     # via -r test-requirements.in
-astroid==2.11.5
+astroid==2.11.7
     # via pylint
 bcrypt==3.2.2
     # via paramiko
-certifi==2022.5.18.1
+certifi==2022.6.15
     # via requests
-cffi==1.15.0
+cffi==1.15.1
     # via
     #   bcrypt
     #   cryptography
     #   pynacl
-charset-normalizer==2.0.12
+charset-normalizer==2.1.0
     # via requests
-colorama==0.4.4
+colorama==0.4.5
     # via plush-fabric
-cryptography==37.0.2
+cryptography==37.0.4
     # via
     #   paramiko
     #   secretstorage
@@ -37,8 +37,6 @@ httplib2==0.20.4
     # via oauth2client
 idna==3.3
     # via requests
-importlib-metadata==4.11.4
-    # via keyring
 invoke==1.7.1
     # via fabric
 isort==5.10.1
@@ -47,7 +45,7 @@ jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
-keyring==23.5.1
+keyring==23.6.0
     # via plush-fabric
 lazy-object-proxy==1.7.1
     # via astroid
@@ -76,7 +74,7 @@ pygithub==1.55
     # via plush-fabric
 pyjwt==2.4.0
     # via pygithub
-pylint==2.14.0
+pylint==2.14.4
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -84,7 +82,7 @@ pynacl==1.5.0
     #   pygithub
 pyparsing==3.0.9
     # via httplib2
-requests==2.27.1
+requests==2.28.1
     # via pygithub
 rsa==4.8
     # via oauth2client
@@ -97,16 +95,14 @@ six==1.16.0
     #   pathlib2
 tomli==2.0.1
     # via pylint
-tomlkit==0.11.0
+tomlkit==0.11.1
     # via pylint
-urllib3==1.26.9
+urllib3==1.26.10
     # via requests
 wrapt==1.14.1
     # via
     #   astroid
     #   deprecated
-zipp==3.8.0
-    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
