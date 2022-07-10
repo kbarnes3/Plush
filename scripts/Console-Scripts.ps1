@@ -39,7 +39,7 @@ Set-Item function:global:Update-DevEnvironment {
 
 Set-Item function:global:Upgrade-Requirements {
     Push-Location $PSScriptRoot\..
-    & pip-compile -o .\win64-py310-requirements.txt .\requirements.in
+    & pip-compile --upgrade --output-file=win64-py310-requirements.txt .\requirements.in
     $requirements = Get-Content .\win64-py310-requirements.txt
     $requirements = $requirements -replace 'file:///.*Plush/python', './python'
     Set-Content -Path .\win64-py310-requirements.txt -Value $requirements
