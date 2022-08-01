@@ -29,7 +29,7 @@ deprecated==1.2.13
     # via pygithub
 dill==0.3.5.1
     # via pylint
-fabric==2.7.0
+fabric==2.7.1
     # via
     #   patchwork
     #   plush-fabric
@@ -45,7 +45,7 @@ jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
-keyring==23.6.0
+keyring==23.7.0
     # via plush-fabric
 lazy-object-proxy==1.7.1
     # via astroid
@@ -74,7 +74,7 @@ pygithub==1.55
     # via plush-fabric
 pyjwt==2.4.0
     # via pygithub
-pylint==2.14.4
+pylint==2.14.5
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -84,7 +84,7 @@ pyparsing==3.0.9
     # via httplib2
 requests==2.28.1
     # via pygithub
-rsa==4.8
+rsa==4.9
     # via oauth2client
 secretstorage==3.3.2
     # via keyring
@@ -97,7 +97,7 @@ tomli==2.0.1
     # via pylint
 tomlkit==0.11.1
     # via pylint
-urllib3==1.26.10
+urllib3==1.26.11
     # via requests
 wrapt==1.14.1
     # via

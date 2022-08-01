@@ -38,7 +38,7 @@ dill==0.3.5.1
     # via pylint
 docutils==0.19
     # via readme-renderer
-fabric==2.7.0
+fabric==2.7.1
     # via
     #   patchwork
     #   plush-fabric
@@ -52,7 +52,7 @@ invoke==1.7.1
     # via fabric
 isort==5.10.1
     # via pylint
-keyring==23.6.0
+keyring==23.7.0
     # via
     #   plush-fabric
     #   twine
@@ -70,7 +70,7 @@ patchwork==1.0.1
     # via plush-fabric
 pathlib2==2.3.7.post1
     # via fabric
-pep517==0.12.0
+pep517==0.13.0
     # via build
 pkginfo==1.8.3
     # via twine
@@ -93,7 +93,7 @@ pygments==2.12.0
     #   rich
 pyjwt==2.4.0
     # via pygithub
-pylint==2.14.4
+pylint==2.14.5
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -116,9 +116,9 @@ requests-toolbelt==0.9.1
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==12.4.4
+rich==12.5.1
     # via twine
-rsa==4.8
+rsa==4.9
     # via oauth2client
 six==1.16.0
     # via
@@ -135,7 +135,7 @@ tomlkit==0.11.1
     # via pylint
 twine==4.0.1
     # via plush-fabric
-urllib3==1.26.10
+urllib3==1.26.11
     # via
     #   requests
     #   twine
@@ -145,7 +145,7 @@ wrapt==1.14.1
     # via
     #   astroid
     #   deprecated
-zipp==3.8.0
+zipp==3.8.1
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
