@@ -6,11 +6,11 @@
 #
 -e ./python
     # via -r test-requirements.in
-astroid==2.12.5
+astroid==2.12.10
     # via pylint
 bcrypt==4.0.0
     # via paramiko
-certifi==2022.6.15
+certifi==2022.9.24
     # via requests
 cffi==1.15.1
     # via
@@ -20,7 +20,7 @@ charset-normalizer==2.1.1
     # via requests
 colorama==0.4.5
     # via plush-fabric
-cryptography==37.0.4
+cryptography==38.0.1
     # via
     #   paramiko
     #   secretstorage
@@ -34,19 +34,19 @@ fabric==2.7.1
     #   plush-fabric
 httplib2==0.20.4
     # via oauth2client
-idna==3.3
+idna==3.4
     # via requests
-invoke==1.7.1
+invoke==1.7.3
     # via fabric
 isort==5.10.1
     # via pylint
-jaraco-classes==3.2.2
+jaraco-classes==3.2.3
     # via keyring
 jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
-keyring==23.9.0
+keyring==23.9.3
     # via plush-fabric
 lazy-object-proxy==1.7.1
     # via astroid
@@ -75,9 +75,9 @@ pycparser==2.21
     # via cffi
 pygithub==1.55
     # via plush-fabric
-pyjwt==2.4.0
+pyjwt==2.5.0
     # via pygithub
-pylint==2.15.0
+pylint==2.15.3
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -98,7 +98,7 @@ six==1.16.0
     #   pathlib2
 tomli==2.0.1
     # via pylint
-tomlkit==0.11.4
+tomlkit==0.11.5
     # via pylint
 urllib3==1.26.12
     # via requests
