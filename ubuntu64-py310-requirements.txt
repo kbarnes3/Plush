@@ -20,7 +20,7 @@ charset-normalizer==2.1.1
     # via requests
 colorama==0.4.6
     # via plush-fabric
-cryptography==38.0.1
+cryptography==38.0.3
     # via
     #   paramiko
     #   secretstorage
@@ -36,6 +36,8 @@ httplib2==0.21.0
     # via oauth2client
 idna==3.4
     # via requests
+importlib-metadata==5.0.0
+    # via keyring
 invoke==1.7.3
     # via fabric
 isort==5.10.1
@@ -46,7 +48,7 @@ jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
-keyring==23.9.3
+keyring==23.11.0
     # via plush-fabric
 lazy-object-proxy==1.8.0
     # via astroid
@@ -56,13 +58,13 @@ more-itertools==9.0.0
     # via jaraco-classes
 oauth2client==4.1.3
     # via plush-fabric
-paramiko==2.11.0
+paramiko==2.12.0
     # via fabric
 patchwork==1.0.1
     # via plush-fabric
 pathlib2==2.3.7.post1
     # via fabric
-platformdirs==2.5.2
+platformdirs==2.5.3
     # via pylint
 pyasn1==0.4.8
     # via
@@ -73,7 +75,7 @@ pyasn1-modules==0.2.8
     # via oauth2client
 pycparser==2.21
     # via cffi
-pygithub==1.56
+pygithub==1.57
     # via plush-fabric
 pyjwt==2.6.0
     # via pygithub
@@ -106,3 +108,5 @@ wrapt==1.14.1
     # via
     #   astroid
     #   deprecated
+zipp==3.10.0
+    # via importlib-metadata
