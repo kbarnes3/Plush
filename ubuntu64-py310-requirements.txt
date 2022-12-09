@@ -10,7 +10,7 @@ astroid==2.12.13
     # via pylint
 bcrypt==4.0.1
     # via paramiko
-certifi==2022.9.24
+certifi==2022.12.7
     # via requests
 cffi==1.15.1
     # via
@@ -64,7 +64,7 @@ patchwork==1.0.1
     # via plush-fabric
 pathlib2==2.3.7.post1
     # via fabric
-platformdirs==2.5.4
+platformdirs==2.6.0
     # via pylint
 pyasn1==0.4.8
     # via
@@ -79,7 +79,7 @@ pygithub==1.57
     # via plush-fabric
 pyjwt==2.6.0
     # via pygithub
-pylint==2.15.7
+pylint==2.15.8
     # via plush-fabric
 pynacl==1.5.0
     # via
