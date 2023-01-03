@@ -20,7 +20,7 @@ charset-normalizer==2.1.1
     # via requests
 colorama==0.4.6
     # via plush-fabric
-cryptography==38.0.4
+cryptography==39.0.0
     # via
     #   paramiko
     #   secretstorage
@@ -36,11 +36,11 @@ httplib2==0.21.0
     # via oauth2client
 idna==3.4
     # via requests
-importlib-metadata==5.1.0
+importlib-metadata==6.0.0
     # via keyring
 invoke==1.7.3
     # via fabric
-isort==5.10.1
+isort==5.11.4
     # via pylint
 jaraco-classes==3.2.3
     # via keyring
@@ -48,7 +48,7 @@ jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
-keyring==23.11.0
+keyring==23.13.1
     # via plush-fabric
 lazy-object-proxy==1.8.0
     # via astroid
@@ -64,7 +64,7 @@ patchwork==1.0.1
     # via plush-fabric
 pathlib2==2.3.7.post1
     # via fabric
-platformdirs==2.6.0
+platformdirs==2.6.2
     # via pylint
 pyasn1==0.4.8
     # via
@@ -79,7 +79,7 @@ pygithub==1.57
     # via plush-fabric
 pyjwt==2.6.0
     # via pygithub
-pylint==2.15.8
+pylint==2.15.9
     # via plush-fabric
 pynacl==1.5.0
     # via
