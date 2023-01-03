@@ -11,10 +11,11 @@ def _exists(conn: Connection, path: str, sudo: bool=False) -> bool:
 
 def ensure_directory(conn: Connection,
                      directory: str,
-                     owning_group: str,
+                     owning_group: Optional[str] = None,
+                     owning_user: Optional[str] = None,
                      mod: str = 'ug+rwX,o+rX,o-w'):
     conn.sudo(f'mkdir -p {directory}')
-    set_permissions_directory(conn, directory, group=owning_group, mod=mod)
+    set_permissions_directory(conn, directory, group=owning_group, user=owning_user, mod=mod)
 
 
 def set_permissions_directory(conn: Connection, # pylint: disable=R0913
