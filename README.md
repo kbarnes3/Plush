@@ -1,7 +1,7 @@
 Plush
 ==============
 
-[![Build Status](https://kbarnes3.visualstudio.com/Plush/_apis/build/status/kbarnes3.Plush?branchName=master)](https://kbarnes3.visualstudio.com/Plush/_build/latest?definitionId=8&branchName=master)
+[![Build Status](https://kbarnes3.visualstudio.com/Plush/_apis/build/status/kbarnes3.Plush?branchName=trunk)](https://kbarnes3.visualstudio.com/Plush/_build/latest?definitionId=8&branchName=trunk)
 
 A helper library for [Fabric](https://www.fabfile.org) to simplify creating and managing GitHub deploy keys when deploying your GitHub-hosted
 repository. Currently, Plush is only tested on Ubuntu 22.04 LTS.
