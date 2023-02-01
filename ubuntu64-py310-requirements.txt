@@ -6,7 +6,7 @@
 #
 -e ./python
     # via -r test-requirements.in
-astroid==2.12.13
+astroid==2.14.1
     # via pylint
 bcrypt==4.0.1
     # via paramiko
@@ -16,7 +16,7 @@ cffi==1.15.1
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==2.1.1
+charset-normalizer==3.0.1
     # via requests
 colorama==0.4.6
     # via plush-fabric
@@ -40,7 +40,7 @@ importlib-metadata==6.0.0
     # via keyring
 invoke==1.7.3
     # via fabric
-isort==5.11.4
+isort==5.12.0
     # via pylint
 jaraco-classes==3.2.3
     # via keyring
@@ -50,7 +50,7 @@ jeepney==0.8.0
     #   secretstorage
 keyring==23.13.1
     # via plush-fabric
-lazy-object-proxy==1.8.0
+lazy-object-proxy==1.9.0
     # via astroid
 mccabe==0.7.0
     # via pylint
@@ -58,7 +58,7 @@ more-itertools==9.0.0
     # via jaraco-classes
 oauth2client==4.1.3
     # via plush-fabric
-paramiko==2.12.0
+paramiko==3.0.0
     # via fabric
 patchwork==1.0.1
     # via plush-fabric
@@ -79,7 +79,7 @@ pygithub==1.57
     # via plush-fabric
 pyjwt==2.6.0
     # via pygithub
-pylint==2.15.9
+pylint==2.16.0
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -87,7 +87,7 @@ pynacl==1.5.0
     #   pygithub
 pyparsing==3.0.9
     # via httplib2
-requests==2.28.1
+requests==2.28.2
     # via pygithub
 rsa==4.9
     # via oauth2client
@@ -96,17 +96,18 @@ secretstorage==3.3.3
 six==1.16.0
     # via
     #   oauth2client
-    #   paramiko
     #   pathlib2
 tomli==2.0.1
     # via pylint
 tomlkit==0.11.6
     # via pylint
-urllib3==1.26.13
+typing-extensions==4.4.0
+    # via astroid
+urllib3==1.26.14
     # via requests
 wrapt==1.14.1
     # via
     #   astroid
     #   deprecated
-zipp==3.11.0
+zipp==3.12.0
     # via importlib-metadata
