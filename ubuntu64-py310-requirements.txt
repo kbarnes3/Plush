@@ -20,7 +20,7 @@ charset-normalizer==3.0.1
     # via requests
 colorama==0.4.6
     # via plush-fabric
-cryptography==39.0.0
+cryptography==39.0.1
     # via
     #   paramiko
     #   secretstorage
@@ -64,7 +64,7 @@ patchwork==1.0.1
     # via plush-fabric
 pathlib2==2.3.7.post1
     # via fabric
-platformdirs==2.6.2
+platformdirs==3.0.0
     # via pylint
 pyasn1==0.4.8
     # via
@@ -79,7 +79,7 @@ pygithub==1.57
     # via plush-fabric
 pyjwt==2.6.0
     # via pygithub
-pylint==2.16.0
+pylint==2.16.1
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -109,5 +109,5 @@ wrapt==1.14.1
     # via
     #   astroid
     #   deprecated
-zipp==3.12.0
+zipp==3.12.1
     # via importlib-metadata
