@@ -10,7 +10,7 @@ These steps should all be followed in a console set up as described in Setup-Dev
 1. Switch to master and merge in this pull request.
 1. Run `python -m build --sdist --wheel`.
 1. Run `twine upload dist/*version*`.
-1. Confirm the new package is visible on [PyPi]((https://pypi.org/project/plush-fabric/).
+1. Confirm the new package is visible on [PyPi](https://pypi.org/project/plush-fabric/).
 1. Run `git tag v*version*`.
 1. Run `git push origin v*version*`.
 1. Go to GitHub and describe the notable changes in the release section.
