@@ -6,7 +6,7 @@
 #
 -e ./python
     # via -r test-requirements.in
-astroid==2.15.2
+astroid==2.15.4
     # via pylint
 bcrypt==4.0.1
     # via paramiko
@@ -20,7 +20,7 @@ charset-normalizer==3.1.0
     # via requests
 colorama==0.4.6
     # via plush-fabric
-cryptography==40.0.1
+cryptography==40.0.2
     # via
     #   paramiko
     #   pyjwt
@@ -37,7 +37,7 @@ httplib2==0.22.0
     # via oauth2client
 idna==3.4
     # via requests
-importlib-metadata==6.1.0
+importlib-metadata==6.6.0
     # via keyring
 invoke==1.7.3
     # via fabric
@@ -65,14 +65,14 @@ patchwork==1.0.1
     # via plush-fabric
 pathlib2==2.3.7.post1
     # via fabric
-platformdirs==3.2.0
+platformdirs==3.5.0
     # via pylint
-pyasn1==0.4.8
+pyasn1==0.5.0
     # via
     #   oauth2client
     #   pyasn1-modules
     #   rsa
-pyasn1-modules==0.2.8
+pyasn1-modules==0.3.0
     # via oauth2client
 pycparser==2.21
     # via cffi
@@ -80,7 +80,7 @@ pygithub==1.58.1
     # via plush-fabric
 pyjwt[crypto]==2.6.0
     # via pygithub
-pylint==2.17.2
+pylint==2.17.3
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -88,7 +88,7 @@ pynacl==1.5.0
     #   pygithub
 pyparsing==3.0.9
     # via httplib2
-requests==2.28.2
+requests==2.29.0
     # via pygithub
 rsa==4.9
     # via oauth2client
@@ -100,7 +100,7 @@ six==1.16.0
     #   pathlib2
 tomli==2.0.1
     # via pylint
-tomlkit==0.11.7
+tomlkit==0.11.8
     # via pylint
 typing-extensions==4.5.0
     # via astroid
