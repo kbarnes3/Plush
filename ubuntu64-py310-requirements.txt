@@ -6,11 +6,11 @@
 #
 -e ./python
     # via -r test-requirements.in
-astroid==2.15.4
+astroid==2.15.5
     # via pylint
 bcrypt==4.0.1
     # via paramiko
-certifi==2022.12.7
+certifi==2023.5.7
     # via requests
 cffi==1.15.1
     # via
@@ -65,7 +65,7 @@ patchwork==1.0.1
     # via plush-fabric
 pathlib2==2.3.7.post1
     # via fabric
-platformdirs==3.5.0
+platformdirs==3.5.1
     # via pylint
 pyasn1==0.5.0
     # via
@@ -76,11 +76,11 @@ pyasn1-modules==0.3.0
     # via oauth2client
 pycparser==2.21
     # via cffi
-pygithub==1.58.1
+pygithub==1.58.2
     # via plush-fabric
-pyjwt[crypto]==2.6.0
+pyjwt[crypto]==2.7.0
     # via pygithub
-pylint==2.17.3
+pylint==2.17.4
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -88,7 +88,7 @@ pynacl==1.5.0
     #   pygithub
 pyparsing==3.0.9
     # via httplib2
-requests==2.29.0
+requests==2.31.0
     # via pygithub
 rsa==4.9
     # via oauth2client
@@ -102,9 +102,9 @@ tomli==2.0.1
     # via pylint
 tomlkit==0.11.8
     # via pylint
-typing-extensions==4.5.0
+typing-extensions==4.6.1
     # via astroid
-urllib3==1.26.15
+urllib3==2.0.2
     # via requests
 wrapt==1.15.0
     # via
