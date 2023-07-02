@@ -45,7 +45,7 @@ httplib2==0.22.0
     # via oauth2client
 idna==3.4
     # via requests
-importlib-metadata==6.6.0
+importlib-metadata==6.7.0
     # via
     #   keyring
     #   twine
@@ -55,13 +55,13 @@ isort==5.12.0
     # via pylint
 jaraco-classes==3.2.3
     # via keyring
-keyring==23.13.1
+keyring==24.2.0
     # via
     #   plush-fabric
     #   twine
 lazy-object-proxy==1.9.0
     # via astroid
-markdown-it-py==2.2.0
+markdown-it-py==3.0.0
     # via rich
 mccabe==0.7.0
     # via pylint
@@ -81,7 +81,7 @@ pathlib2==2.3.7.post1
     # via fabric
 pkginfo==1.9.6
     # via twine
-platformdirs==3.5.1
+platformdirs==3.8.0
     # via pylint
 pyasn1==0.5.0
     # via
@@ -92,7 +92,7 @@ pyasn1-modules==0.3.0
     # via oauth2client
 pycparser==2.21
     # via cffi
-pygithub==1.58.2
+pygithub==1.59.0
     # via plush-fabric
 pygments==2.15.1
     # via
@@ -106,13 +106,13 @@ pynacl==1.5.0
     # via
     #   paramiko
     #   pygithub
-pyparsing==3.0.9
+pyparsing==3.1.0
     # via httplib2
 pyproject-hooks==1.0.0
     # via build
-pywin32-ctypes==0.2.0
+pywin32-ctypes==0.2.2
     # via keyring
-readme-renderer==37.3
+readme-renderer==40.0
     # via twine
 requests==2.31.0
     # via
@@ -123,7 +123,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.4.1
+rich==13.4.2
     # via twine
 rsa==4.9
     # via oauth2client
@@ -141,9 +141,9 @@ tomlkit==0.11.8
     # via pylint
 twine==4.0.2
     # via plush-fabric
-typing-extensions==4.6.3
+typing-extensions==4.7.0
     # via astroid
-urllib3==2.0.2
+urllib3==2.0.3
     # via
     #   requests
     #   twine
