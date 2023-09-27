@@ -6,7 +6,7 @@
 #
 -e ./python
     # via -r test-requirements.in
-astroid==2.15.6
+astroid==2.15.8
     # via pylint
 bcrypt==4.0.1
     # via paramiko
@@ -20,7 +20,7 @@ charset-normalizer==3.2.0
     # via requests
 colorama==0.4.6
     # via plush-fabric
-cryptography==41.0.3
+cryptography==41.0.4
     # via
     #   paramiko
     #   pyjwt
@@ -82,7 +82,7 @@ pygithub==1.59.1
     # via plush-fabric
 pyjwt[crypto]==2.8.0
     # via pygithub
-pylint==2.17.5
+pylint==2.17.6
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -104,13 +104,13 @@ tomli==2.0.1
     # via pylint
 tomlkit==0.12.1
     # via pylint
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via astroid
-urllib3==2.0.4
+urllib3==2.0.5
     # via requests
 wrapt==1.15.0
     # via
     #   astroid
     #   deprecated
-zipp==3.16.2
+zipp==3.17.0
     # via importlib-metadata
