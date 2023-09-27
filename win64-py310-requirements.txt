@@ -6,13 +6,11 @@
 #
 -e ./python
     # via -r .\requirements.in
-astroid==2.15.6
+astroid==2.15.8
     # via pylint
 bcrypt==4.0.1
     # via paramiko
-bleach==6.0.0
-    # via readme-renderer
-build==1.0.0
+build==1.0.3
     # via plush-fabric
 certifi==2023.7.22
     # via requests
@@ -27,7 +25,7 @@ colorama==0.4.6
     #   build
     #   plush-fabric
     #   pylint
-cryptography==41.0.3
+cryptography==41.0.4
     # via
     #   paramiko
     #   pyjwt
@@ -71,6 +69,8 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==10.1.0
     # via jaraco-classes
+nh3==0.2.14
+    # via readme-renderer
 oauth2client==4.1.3
     # via plush-fabric
 packaging==23.1
@@ -102,7 +102,7 @@ pygments==2.16.1
     #   rich
 pyjwt[crypto]==2.8.0
     # via pygithub
-pylint==2.17.5
+pylint==2.17.6
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -114,7 +114,7 @@ pyproject-hooks==1.0.0
     # via build
 pywin32-ctypes==0.2.2
     # via keyring
-readme-renderer==41.0
+readme-renderer==42.0
     # via twine
 requests==2.31.0
     # via
@@ -125,13 +125,12 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.5.2
+rich==13.5.3
     # via twine
 rsa==4.9
     # via oauth2client
 six==1.16.0
     # via
-    #   bleach
     #   oauth2client
     #   pathlib2
 tomli==2.0.1
@@ -143,17 +142,15 @@ tomlkit==0.12.1
     # via pylint
 twine==4.0.2
     # via plush-fabric
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via astroid
-urllib3==2.0.4
+urllib3==2.0.5
     # via
     #   requests
     #   twine
-webencodings==0.5.1
-    # via bleach
 wrapt==1.15.0
     # via
     #   astroid
     #   deprecated
-zipp==3.16.2
+zipp==3.17.0
     # via importlib-metadata
