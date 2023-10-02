@@ -7,7 +7,7 @@ These steps should all be followed in a console set up as described in Setup-Dev
 
 1. Create a new branch and rev the version number following semantic versioning guidelines.
 1. Create a pull request for this branch and make sure all the checks in Azure Pipelines pass before completing. See CONTRIBUTING.md for more details.
-1. Switch to master and merge in this pull request.
+1. Switch to trunk and merge in this pull request.
 1. Run `python -m build --sdist --wheel`.
 1. Run `twine upload dist/*version*`.
 1. Confirm the new package is visible on [PyPi](https://pypi.org/project/plush-fabric/).
