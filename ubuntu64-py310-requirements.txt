@@ -12,11 +12,11 @@ bcrypt==4.0.1
     # via paramiko
 certifi==2023.7.22
     # via requests
-cffi==1.15.1
+cffi==1.16.0
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via requests
 colorama==0.4.6
     # via plush-fabric
@@ -78,11 +78,11 @@ pyasn1-modules==0.3.0
     # via oauth2client
 pycparser==2.21
     # via cffi
-pygithub==1.59.1
+pygithub==2.1.1
     # via plush-fabric
 pyjwt[crypto]==2.8.0
     # via pygithub
-pylint==2.17.6
+pylint==2.17.7
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -90,6 +90,8 @@ pynacl==1.5.0
     #   pygithub
 pyparsing==3.1.1
     # via httplib2
+python-dateutil==2.8.2
+    # via pygithub
 requests==2.31.0
     # via pygithub
 rsa==4.9
@@ -100,14 +102,19 @@ six==1.16.0
     # via
     #   oauth2client
     #   pathlib2
+    #   python-dateutil
 tomli==2.0.1
     # via pylint
 tomlkit==0.12.1
     # via pylint
 typing-extensions==4.8.0
-    # via astroid
+    # via
+    #   astroid
+    #   pygithub
 urllib3==2.0.5
-    # via requests
+    # via
+    #   pygithub
+    #   requests
 wrapt==1.15.0
     # via
     #   astroid

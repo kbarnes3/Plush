@@ -14,11 +14,11 @@ build==1.0.3
     # via plush-fabric
 certifi==2023.7.22
     # via requests
-cffi==1.15.1
+cffi==1.16.0
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via requests
 colorama==0.4.6
     # via
@@ -73,7 +73,7 @@ nh3==0.2.14
     # via readme-renderer
 oauth2client==4.1.3
     # via plush-fabric
-packaging==23.1
+packaging==23.2
     # via build
 paramiko==3.3.1
     # via fabric
@@ -94,7 +94,7 @@ pyasn1-modules==0.3.0
     # via oauth2client
 pycparser==2.21
     # via cffi
-pygithub==1.59.1
+pygithub==2.1.1
     # via plush-fabric
 pygments==2.16.1
     # via
@@ -102,7 +102,7 @@ pygments==2.16.1
     #   rich
 pyjwt[crypto]==2.8.0
     # via pygithub
-pylint==2.17.6
+pylint==2.17.7
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -112,6 +112,8 @@ pyparsing==3.1.1
     # via httplib2
 pyproject-hooks==1.0.0
     # via build
+python-dateutil==2.8.2
+    # via pygithub
 pywin32-ctypes==0.2.2
     # via keyring
 readme-renderer==42.0
@@ -125,7 +127,7 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.5.3
+rich==13.6.0
     # via twine
 rsa==4.9
     # via oauth2client
@@ -133,6 +135,7 @@ six==1.16.0
     # via
     #   oauth2client
     #   pathlib2
+    #   python-dateutil
 tomli==2.0.1
     # via
     #   build
@@ -143,9 +146,12 @@ tomlkit==0.12.1
 twine==4.0.2
     # via plush-fabric
 typing-extensions==4.8.0
-    # via astroid
+    # via
+    #   astroid
+    #   pygithub
 urllib3==2.0.5
     # via
+    #   pygithub
     #   requests
     #   twine
 wrapt==1.15.0
