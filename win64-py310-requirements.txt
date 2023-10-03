@@ -6,7 +6,7 @@
 #
 -e ./python
     # via -r .\requirements.in
-astroid==2.15.8
+astroid==3.0.0
     # via pylint
 bcrypt==4.0.1
     # via paramiko
@@ -59,8 +59,6 @@ keyring==24.2.0
     # via
     #   plush-fabric
     #   twine
-lazy-object-proxy==1.9.0
-    # via astroid
 markdown-it-py==3.0.0
     # via rich
 mccabe==0.7.0
@@ -83,7 +81,7 @@ pathlib2==2.3.7.post1
     # via fabric
 pkginfo==1.9.6
     # via twine
-platformdirs==3.10.0
+platformdirs==3.11.0
     # via pylint
 pyasn1==0.5.0
     # via
@@ -102,7 +100,7 @@ pygments==2.16.1
     #   rich
 pyjwt[crypto]==2.8.0
     # via pygithub
-pylint==2.17.7
+pylint==3.0.0
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -149,14 +147,12 @@ typing-extensions==4.8.0
     # via
     #   astroid
     #   pygithub
-urllib3==2.0.5
+urllib3==2.0.6
     # via
     #   pygithub
     #   requests
     #   twine
 wrapt==1.15.0
-    # via
-    #   astroid
-    #   deprecated
+    # via deprecated
 zipp==3.17.0
     # via importlib-metadata
