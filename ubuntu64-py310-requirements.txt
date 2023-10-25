@@ -6,7 +6,7 @@
 #
 -e ./python
     # via -r test-requirements.in
-astroid==3.0.0
+astroid==3.0.1
     # via pylint
 bcrypt==4.0.1
     # via paramiko
@@ -16,11 +16,13 @@ cffi==1.16.0
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.3.0
+charset-normalizer==3.3.1
     # via requests
 colorama==0.4.6
-    # via plush-fabric
-cryptography==41.0.4
+    # via
+    #   ./python
+    #   plush-fabric
+cryptography==41.0.5
     # via
     #   paramiko
     #   pyjwt
@@ -33,6 +35,7 @@ dill==0.3.7
     # via pylint
 fabric==2.7.1
     # via
+    #   ./python
     #   patchwork
     #   plush-fabric
 httplib2==0.22.0
@@ -52,17 +55,23 @@ jeepney==0.8.0
     #   keyring
     #   secretstorage
 keyring==24.2.0
-    # via plush-fabric
+    # via
+    #   ./python
+    #   plush-fabric
 mccabe==0.7.0
     # via pylint
 more-itertools==10.1.0
     # via jaraco-classes
 oauth2client==4.1.3
-    # via plush-fabric
+    # via
+    #   ./python
+    #   plush-fabric
 paramiko==3.3.1
     # via fabric
 patchwork==1.0.1
-    # via plush-fabric
+    # via
+    #   ./python
+    #   plush-fabric
 pathlib2==2.3.7.post1
     # via fabric
 platformdirs==3.11.0
@@ -77,11 +86,17 @@ pyasn1-modules==0.3.0
 pycparser==2.21
     # via cffi
 pygithub==2.1.1
-    # via plush-fabric
+    # via
+    #   ./python
+    #   plush-fabric
 pyjwt[crypto]==2.8.0
-    # via pygithub
-pylint==3.0.0
-    # via plush-fabric
+    # via
+    #   pygithub
+    #   pyjwt
+pylint==3.0.2
+    # via
+    #   ./python
+    #   plush-fabric
 pynacl==1.5.0
     # via
     #   paramiko
@@ -109,7 +124,7 @@ typing-extensions==4.8.0
     # via
     #   astroid
     #   pygithub
-urllib3==2.0.6
+urllib3==2.0.7
     # via
     #   pygithub
     #   requests
