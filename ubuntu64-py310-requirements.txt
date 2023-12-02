@@ -8,9 +8,9 @@
     # via -r test-requirements.in
 astroid==3.0.1
     # via pylint
-bcrypt==4.0.1
+bcrypt==4.1.1
     # via paramiko
-certifi==2023.7.22
+certifi==2023.11.17
     # via requests
 cffi==1.16.0
     # via
@@ -22,7 +22,7 @@ colorama==0.4.6
     # via
     #   ./python
     #   plush-fabric
-cryptography==41.0.5
+cryptography==41.0.7
     # via
     #   paramiko
     #   pyjwt
@@ -40,9 +40,9 @@ fabric==2.7.1
     #   plush-fabric
 httplib2==0.22.0
     # via oauth2client
-idna==3.4
+idna==3.6
     # via requests
-importlib-metadata==6.8.0
+importlib-metadata==6.9.0
     # via keyring
 invoke==1.7.3
     # via fabric
@@ -54,7 +54,7 @@ jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
-keyring==24.2.0
+keyring==24.3.0
     # via
     #   ./python
     #   plush-fabric
@@ -74,9 +74,9 @@ patchwork==1.0.1
     #   plush-fabric
 pathlib2==2.3.7.post1
     # via fabric
-platformdirs==3.11.0
+platformdirs==4.0.0
     # via pylint
-pyasn1==0.5.0
+pyasn1==0.5.1
     # via
     #   oauth2client
     #   pyasn1-modules
@@ -118,17 +118,17 @@ six==1.16.0
     #   python-dateutil
 tomli==2.0.1
     # via pylint
-tomlkit==0.12.1
+tomlkit==0.12.3
     # via pylint
 typing-extensions==4.8.0
     # via
     #   astroid
     #   pygithub
-urllib3==2.0.7
+urllib3==2.1.0
     # via
     #   pygithub
     #   requests
-wrapt==1.15.0
+wrapt==1.16.0
     # via deprecated
 zipp==3.17.0
     # via importlib-metadata
