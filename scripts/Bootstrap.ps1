@@ -6,7 +6,7 @@ param(
 . $PSScriptRoot\Write-Status.ps1
 
 if ($Verbose) {
-    $quiet = ""
+    $quiet = $null
 }
 else {
     $quiet = "--quiet"
