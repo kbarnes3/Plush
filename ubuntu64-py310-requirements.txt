@@ -6,7 +6,7 @@
 #
 -e ./python
     # via ./python
-astroid==3.0.3
+astroid==3.1.0
     # via pylint
 bcrypt==4.1.2
     # via paramiko
@@ -20,7 +20,7 @@ charset-normalizer==3.3.2
     # via requests
 colorama==0.4.6
     # via plush-fabric
-cryptography==42.0.4
+cryptography==42.0.5
     # via
     #   paramiko
     #   pyjwt
@@ -51,7 +51,7 @@ jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
-keyring==24.3.0
+keyring==24.3.1
     # via plush-fabric
 mccabe==0.7.0
     # via pylint
@@ -80,7 +80,7 @@ pygithub==2.2.0
     # via plush-fabric
 pyjwt[crypto]==2.8.0
     # via pygithub
-pylint==3.0.3
+pylint==3.1.0
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -100,9 +100,9 @@ six==1.16.0
     #   pathlib2
 tomli==2.0.1
     # via pylint
-tomlkit==0.12.3
+tomlkit==0.12.4
     # via pylint
-typing-extensions==4.9.0
+typing-extensions==4.10.0
     # via
     #   astroid
     #   pygithub
