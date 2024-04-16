@@ -8,6 +8,8 @@
     # via ./python
 astroid==3.1.0
     # via pylint
+backports-tarfile==1.1.0
+    # via jaraco-context
 bcrypt==4.1.2
     # via paramiko
 build==1.2.1
@@ -35,7 +37,7 @@ deprecated==1.2.14
     #   pygithub
 dill==0.3.8
     # via pylint
-docutils==0.20.1
+docutils==0.21.1
     # via readme-renderer
 fabric==2.7.1
     # via
@@ -43,7 +45,7 @@ fabric==2.7.1
     #   plush-fabric
 httplib2==0.22.0
     # via oauth2client
-idna==3.6
+idna==3.7
     # via requests
 importlib-metadata==7.1.0
     # via
@@ -55,11 +57,11 @@ isort==5.13.2
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
-jaraco-context==4.3.0
+jaraco-context==5.3.0
     # via keyring
 jaraco-functools==4.0.0
     # via keyring
-keyring==25.0.0
+keyring==25.1.0
     # via
     #   plush-fabric
     #   twine
@@ -146,7 +148,7 @@ tomlkit==0.12.4
     # via pylint
 twine==5.0.0
     # via plush-fabric
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   astroid
     #   pygithub

@@ -8,6 +8,8 @@
     # via ./python
 astroid==3.1.0
     # via pylint
+backports-tarfile==1.1.0
+    # via jaraco-context
 bcrypt==4.1.2
     # via paramiko
 certifi==2024.2.2
@@ -37,7 +39,7 @@ fabric==2.7.1
     #   plush-fabric
 httplib2==0.22.0
     # via oauth2client
-idna==3.6
+idna==3.7
     # via requests
 importlib-metadata==7.1.0
     # via keyring
@@ -47,7 +49,7 @@ isort==5.13.2
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
-jaraco-context==4.3.0
+jaraco-context==5.3.0
     # via keyring
 jaraco-functools==4.0.0
     # via keyring
@@ -55,7 +57,7 @@ jeepney==0.8.0
     # via
     #   keyring
     #   secretstorage
-keyring==25.0.0
+keyring==25.1.0
     # via plush-fabric
 mccabe==0.7.0
     # via pylint
@@ -108,7 +110,7 @@ tomli==2.0.1
     # via pylint
 tomlkit==0.12.4
     # via pylint
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   astroid
     #   pygithub
