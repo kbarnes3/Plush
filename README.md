@@ -1,6 +1,7 @@
 Plush
 ==============
 
+[![Publish Python 🐍 distribution 📦 to PyPI and TestPyPI](https://github.com/kbarnes3/Plush/actions/workflows/release.yml/badge.svg)](https://github.com/kbarnes3/Plush/actions/workflows/release.yml)
 [![Test 🧪 Plush](https://github.com/kbarnes3/Plush/actions/workflows/test.yml/badge.svg)](https://github.com/kbarnes3/Plush/actions/workflows/test.yml)
 
 A helper library for [Fabric](https://www.fabfile.org) to simplify creating and managing GitHub deploy keys when deploying your GitHub-hosted
