@@ -60,9 +60,6 @@ jobs:
       Sign the Python 🐍 distribution 📦 with Sigstore
       and upload them to GitHub Release
     runs-on: ubuntu-latest
-    defaults:
-        run:
-          working-directory: ./python
     needs:
     - publish-to-pypi
 
