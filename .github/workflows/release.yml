@@ -84,8 +84,9 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       run: >-
         gh release create
-        'Plush ${{ github.ref_name }}'
+        '${{ github.ref_name }}'
         --repo '${{ github.repository }}'
+        --title 'Plush ${{ github.ref_name }}'
         --notes "Updating minimum versions of dependencies"
     - name: Upload artifact signatures to GitHub Release
       env:
