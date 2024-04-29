@@ -17,7 +17,7 @@ SSH keys used elsewhere on your server
 (and not readable by anyone else on the server)
 - Example PowerShell scripts are provided that give tab completion around fab.exe
 
-To see this project in action, follow the directions in Setup-Dev-Environment.md. You will need access to an Ubuntu 18.04 machine (ideally a VM).
+To see this project in action, follow the directions in Setup-Dev-Environment.md. You will need access to an Ubuntu 22.04 machine (ideally a VM).
 
 ## Usage
 
