@@ -116,7 +116,7 @@ pynacl==1.5.0
     #   pygithub
 pyparsing==3.1.2
     # via httplib2
-pyproject-hooks==1.0.0
+pyproject-hooks==1.1.0
     # via build
 pywin32-ctypes==0.2.2
     # via keyring
@@ -143,7 +143,6 @@ tomli==2.0.1
     # via
     #   build
     #   pylint
-    #   pyproject-hooks
 tomlkit==0.12.4
     # via pylint
 twine==5.0.0
