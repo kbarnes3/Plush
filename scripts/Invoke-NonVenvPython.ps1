@@ -5,4 +5,4 @@ param(
     $PythonArgs
 )
 
-& py.exe -3.10 @PythonArgs
+& py.exe -3.12 @PythonArgs

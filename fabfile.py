@@ -59,7 +59,6 @@ def disable_ssh_passwords(conn):
     print("Alternatively, reboot the server if console access isn't readily available.")
     print("========================================")
 
-
 @Task
 def test_deploy(conn, repo):
     print(Fore.GREEN + 'Starting test deployment')
@@ -92,7 +91,7 @@ def compile_requirements(conn, fresh=False, upgrade=False):
     setup_py = 'setup.py'
     setup_cfg = 'setup.cfg'
     readme_md = 'README.md'
-    requirements_txt = 'ubuntu64-py310-requirements.txt'
+    requirements_txt = 'ubuntu64-py312-requirements.txt'
 
     transfer = Transfer(conn)
     transfer.put(requirements_in, f'{staging_dir}/{requirements_in}')
