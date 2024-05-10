@@ -29,6 +29,8 @@ cryptography==42.0.7
     # via
     #   paramiko
     #   pyjwt
+decorator==5.1.1
+    # via fabric
 deprecated==1.2.14
     # via
     #   fabric
@@ -37,17 +39,15 @@ dill==0.3.8
     # via pylint
 docutils==0.21.2
     # via readme-renderer
-fabric==2.7.1
-    # via
-    #   patchwork
-    #   plush-fabric
+fabric==3.2.2
+    # via plush-fabric
 httplib2==0.22.0
     # via oauth2client
 idna==3.7
     # via requests
 importlib-metadata==7.1.0
     # via twine
-invoke==1.7.3
+invoke==2.2.0
     # via fabric
 isort==5.13.2
     # via pylint
@@ -78,10 +78,6 @@ oauth2client==4.1.3
 packaging==24.0
     # via build
 paramiko==3.4.0
-    # via fabric
-patchwork==1.0.1
-    # via plush-fabric
-pathlib2==2.3.7.post1
     # via fabric
 pkginfo==1.10.0
     # via twine
@@ -132,9 +128,7 @@ rich==13.7.1
 rsa==4.9
     # via oauth2client
 six==1.16.0
-    # via
-    #   oauth2client
-    #   pathlib2
+    # via oauth2client
 tomlkit==0.12.5
     # via pylint
 twine==5.0.0
