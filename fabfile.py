@@ -86,6 +86,7 @@ def compile_requirements(conn, fresh=False, upgrade=False):
     ensure_directory(conn, f'{staging_python_dir}', remote_user)
     ensure_directory(conn, f'{staging_python_dir}/plush', remote_user)
     ensure_directory(conn, f'{staging_python_dir}/plush/fabric_commands', remote_user)
+    ensure_directory(conn, f'{staging_python_dir}/plush/patchwork', remote_user)
 
     requirements_in = 'test-requirements.in'
     setup_py = 'setup.py'
