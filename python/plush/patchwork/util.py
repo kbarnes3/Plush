@@ -7,7 +7,7 @@ from functools import wraps
 from inspect import signature, Parameter
 
 
-# TODO: calling all functions as eg directory(c, '/foo/bar/') (with initial c)
+# calling all functions as eg directory(c, '/foo/bar/') (with initial c)
 # will probably get old; but what's better?
 # - Phrasing them as methods on mixin classes to pile on top of Context (so:
 # c.directory('/foo/bar/')) pushes us farther towards a god object antipattern,
@@ -26,7 +26,7 @@ from inspect import signature, Parameter
 # bunch of objects to keep track of)
 # - What other patterns are good?
 
-# TODO: how much of the stuff in here should be in Invoke or Fabric core? For
+# how much of the stuff in here should be in Invoke or Fabric core? For
 # now, it's ok to leave here because it's highly experimental, but expect a 2.0
 # or 3.0 release to see it move elsewhere once patterns are established.
 

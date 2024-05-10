@@ -8,7 +8,7 @@ from .util import set_runner
 
 
 @set_runner
-def directory(c, runner, path, user=None, group=None, mode=None):
+def directory(c, runner, path, user=None, group=None, mode=None): # pylint: disable=R0913, W0613
     """
     Ensure a directory exists and has given user and/or mode
 
@@ -32,7 +32,7 @@ def directory(c, runner, path, user=None, group=None, mode=None):
 
 
 @set_runner
-def exists(c, runner, path):
+def exists(c, runner, path): # pylint: disable=W0613
     """
     Return True if given path exists on the current remote host.
 
@@ -41,12 +41,12 @@ def exists(c, runner, path):
     :param str path:
         Path to check for existence.
     """
-    cmd = 'test -e "$(echo {})"'.format(path)
+    cmd = f'test -e "$(echo {path})"'
     return runner(cmd, hide=True, warn=True).ok
 
 
 @set_runner
-def contains(c, runner, filename, text, exact=False, escape=True):
+def contains(c, runner, filename, text, exact=False, escape=True): # pylint: disable=R0913, W0613
     """
     Return True if ``filename`` contains ``text`` (which may be a regex.)
 
@@ -82,7 +82,7 @@ def contains(c, runner, filename, text, exact=False, escape=True):
 
 
 @set_runner
-def append(c, runner, filename, text, partial=False, escape=True):
+def append(c, runner, filename, text, partial=False, escape=True): # pylint: disable=R0913
     """
     Append string (or list of strings) ``text`` to ``filename``.
 
@@ -120,8 +120,8 @@ def append(c, runner, filename, text, partial=False, escape=True):
         regex = "^" + _escape_for_regex(line) + ("" if partial else "$")
         if (
             line
-            and exists(c, filename, runner=runner)
-            and contains(c, filename, regex, escape=False, runner=runner)
+            and exists(c, filename, runner=runner) # pylint: disable=E1120, E1124
+            and contains(c, filename, regex, escape=False, runner=runner) # pylint: disable=E1120, E1124
         ):
             continue
         line = line.replace("'", r"'\\''") if escape else line
