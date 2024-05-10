@@ -2,7 +2,7 @@ from colorama import init, Fore
 from fabric import Task
 from fabric.connection import Connection
 from fabric.transfer import Transfer
-from patchwork.files import exists as patchwork_exists
+from plush.patchwork.files import exists as patchwork_exists
 
 import plush.fabric_commands
 from plush.fabric_commands import install_packages, prepare_user

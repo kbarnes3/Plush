@@ -1,6 +1,6 @@
 from typing import Optional
 from fabric.connection import Connection
-from patchwork.files import exists as patchwork_exists
+from plush.patchwork.files import exists as patchwork_exists
 
 
 def _exists(conn: Connection, path: str, sudo: bool=False) -> bool:
