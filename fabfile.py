@@ -2,7 +2,7 @@ from colorama import init, Fore
 from fabric import Task
 from fabric.connection import Connection
 from fabric.transfer import Transfer
-from patchwork.files import exists as patchwork_exists
+from plush.patchwork.files import exists as patchwork_exists
 
 import plush.fabric_commands
 from plush.fabric_commands import install_packages, prepare_user
@@ -59,7 +59,6 @@ def disable_ssh_passwords(conn):
     print("Alternatively, reboot the server if console access isn't readily available.")
     print("========================================")
 
-
 @Task
 def test_deploy(conn, repo):
     print(Fore.GREEN + 'Starting test deployment')
@@ -87,12 +86,13 @@ def compile_requirements(conn, fresh=False, upgrade=False):
     ensure_directory(conn, f'{staging_python_dir}', remote_user)
     ensure_directory(conn, f'{staging_python_dir}/plush', remote_user)
     ensure_directory(conn, f'{staging_python_dir}/plush/fabric_commands', remote_user)
+    ensure_directory(conn, f'{staging_python_dir}/plush/patchwork', remote_user)
 
     requirements_in = 'test-requirements.in'
     setup_py = 'setup.py'
     setup_cfg = 'setup.cfg'
     readme_md = 'README.md'
-    requirements_txt = 'ubuntu64-py310-requirements.txt'
+    requirements_txt = 'ubuntu64-py312-requirements.txt'
 
     transfer = Transfer(conn)
     transfer.put(requirements_in, f'{staging_dir}/{requirements_in}')

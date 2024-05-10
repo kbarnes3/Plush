@@ -29,7 +29,7 @@ Write-Status "Updating pip"
 Write-Status "Updating pip-tools"
 & python -m pip install --upgrade pip-tools $quiet
 Write-Status "Updating requirements"
-& pip-sync .\win64-py310-requirements.txt $quiet
+& pip-sync .\win64-py312-requirements.txt $quiet
 
 if ($Global:console_functions) {
     # Define or update the console scripts if we want them
