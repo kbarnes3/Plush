@@ -12,7 +12,7 @@ bcrypt==4.1.3
     # via paramiko
 build==1.2.1
     # via plush-fabric
-certifi==2024.2.2
+certifi==2024.6.2
     # via requests
 cffi==1.16.0
     # via
@@ -79,7 +79,7 @@ packaging==24.0
     # via build
 paramiko==3.4.0
     # via fabric
-pkginfo==1.10.0
+pkginfo==1.11.0
     # via twine
 platformdirs==4.2.2
     # via pylint
@@ -114,7 +114,7 @@ pywin32-ctypes==0.2.2
     # via keyring
 readme-renderer==43.0
     # via twine
-requests==2.32.2
+requests==2.32.3
     # via
     #   pygithub
     #   requests-toolbelt
@@ -133,7 +133,7 @@ tomlkit==0.12.5
     # via pylint
 twine==5.1.0
     # via plush-fabric
-typing-extensions==4.11.0
+typing-extensions==4.12.1
     # via pygithub
 urllib3==2.2.1
     # via
@@ -142,5 +142,5 @@ urllib3==2.2.1
     #   twine
 wrapt==1.16.0
     # via deprecated
-zipp==3.18.2
+zipp==3.19.1
     # via importlib-metadata
