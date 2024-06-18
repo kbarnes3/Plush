@@ -20,7 +20,7 @@ charset-normalizer==3.3.2
     # via requests
 colorama==0.4.6
     # via plush-fabric
-cryptography==42.0.7
+cryptography==42.0.8
     # via
     #   paramiko
     #   pyjwt
@@ -57,7 +57,7 @@ keyring==25.2.1
     # via plush-fabric
 mccabe==0.7.0
     # via pylint
-more-itertools==10.2.0
+more-itertools==10.3.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -80,7 +80,7 @@ pygithub==2.3.0
     # via plush-fabric
 pyjwt[crypto]==2.8.0
     # via pygithub
-pylint==3.2.2
+pylint==3.2.3
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -98,9 +98,9 @@ six==1.16.0
     # via oauth2client
 tomlkit==0.12.5
     # via pylint
-typing-extensions==4.12.1
+typing-extensions==4.12.2
     # via pygithub
-urllib3==2.2.1
+urllib3==2.2.2
     # via
     #   pygithub
     #   requests
