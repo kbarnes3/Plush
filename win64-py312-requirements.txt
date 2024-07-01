@@ -45,7 +45,7 @@ httplib2==0.22.0
     # via oauth2client
 idna==3.7
     # via requests
-importlib-metadata==7.1.0
+importlib-metadata==8.0.0
     # via twine
 invoke==2.2.0
     # via fabric
@@ -79,7 +79,7 @@ packaging==24.1
     # via build
 paramiko==3.4.0
     # via fabric
-pkginfo==1.11.1
+pkginfo==1.10.0
     # via twine
 platformdirs==4.2.2
     # via pylint
@@ -100,7 +100,7 @@ pygments==2.18.0
     #   rich
 pyjwt[crypto]==2.8.0
     # via pygithub
-pylint==3.2.3
+pylint==3.2.5
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -131,7 +131,7 @@ six==1.16.0
     # via oauth2client
 tomlkit==0.12.5
     # via pylint
-twine==5.1.0
+twine==5.1.1
     # via plush-fabric
 typing-extensions==4.12.2
     # via pygithub
