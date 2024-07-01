@@ -80,7 +80,7 @@ pygithub==2.3.0
     # via plush-fabric
 pyjwt[crypto]==2.8.0
     # via pygithub
-pylint==3.2.3
+pylint==3.2.5
     # via plush-fabric
 pynacl==1.5.0
     # via
