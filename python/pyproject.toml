@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plush-fabric"
+version = "1.0.3"
+description = "Helper library for Fabric to simplify creating and managing GitHub deploy keys when deploying GitHub-hosted repositories"
+readme = "README.md"
+requires-python = ">= 3.12"
+license =  {file = "LICENSE.txt"}
+authors = [
+  {name = "Kevin Barnes", email = "kbarnes3@gmail.com"},
+]
+keywords = ["Fabric", "GitHub", "deployment"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development",
+]
+dependencies = [
+    "oauth2client>=4.1.3",
+    "PyGithub>=2.3.0",
+    "keyring>=25.3.0",
+    "fabric>=3.2.2",
+    "colorama>=0.4.6",
+]
+
+[project.optional-dependencies]
+test = ["pylint"]
+publish = [
+    "build",
+    "twine",
+]
+
+[project.urls]
+Homepage = "https://github.com/kbarnes3/Plush"
+Issues = "https://github.com/kbarnes3/Plush/issues"
+
+[tool.setuptools]
+packages = [
+    "plush",
+    "plush.fabric_commands",
+    "plush.patchwork",
+]
+
+[project.scripts]
+auth = "plush.console:auth_entry"
+listkeys = "plush.console:list_keys_entry"

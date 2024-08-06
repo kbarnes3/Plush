@@ -92,15 +92,13 @@ def compile_requirements(conn, fresh=False, upgrade=False):
     ensure_directory(conn, f'{staging_python_dir}/plush/patchwork', remote_user)
 
     requirements_in = 'test-requirements.in'
-    setup_py = 'setup.py'
-    setup_cfg = 'setup.cfg'
+    pyproject_toml = 'pyproject.toml'
     readme_md = 'README.md'
     requirements_txt = 'ubuntu64-py312-requirements.txt'
 
     transfer = Transfer(conn)
     transfer.put(requirements_in, f'{staging_dir}/{requirements_in}')
-    transfer.put(f'python/{setup_py}', f'{staging_python_dir}/{setup_py}')
-    transfer.put(f'python/{setup_cfg}', f'{staging_python_dir}/{setup_cfg}')
+    transfer.put(f'python/{pyproject_toml}', f'{staging_python_dir}/{pyproject_toml}')
     transfer.put(f'python/{readme_md}', f'{staging_python_dir}/{readme_md}')
 
     if not fresh:
