@@ -39,7 +39,7 @@ publish = [
 
 [project.urls]
 Homepage = "https://github.com/kbarnes3/Plush"
-Issues = "hhttps://github.com/kbarnes3/Plush/issues"
+Issues = "https://github.com/kbarnes3/Plush/issues"
 
 [tool.setuptools]
 packages = [
