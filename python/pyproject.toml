@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "plush-fabric"
-version = "1.0.4"
+version = "1.0.5"
 description = "Helper library for Fabric to simplify creating and managing GitHub deploy keys when deploying GitHub-hosted repositories"
 readme = "README.md"
 requires-python = ">= 3.12"
