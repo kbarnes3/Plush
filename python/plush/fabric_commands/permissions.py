@@ -18,7 +18,7 @@ def ensure_directory(conn: Connection,
     set_permissions_directory(conn, directory, group=owning_group, user=owning_user, mod=mod)
 
 
-def set_permissions_directory(conn: Connection, # pylint: disable=R0913
+def set_permissions_directory(conn: Connection, # pylint: disable=R0913,R0917
                               directory: str,
                               group: Optional[str] = None,
                               user: Optional[str] = None,
