@@ -8,7 +8,7 @@ from .util import set_runner
 
 
 @set_runner
-def directory(c, runner, path, user=None, group=None, mode=None): # pylint: disable=R0913, W0613
+def directory(c, runner, path, user=None, group=None, mode=None): # pylint: disable=R0913,R0917,W0613
     """
     Ensure a directory exists and has given user and/or mode
 
@@ -46,7 +46,7 @@ def exists(c, runner, path): # pylint: disable=W0613
 
 
 @set_runner
-def contains(c, runner, filename, text, exact=False, escape=True): # pylint: disable=R0913, W0613
+def contains(c, runner, filename, text, exact=False, escape=True): # pylint: disable=R0913,R0917,W0613
     """
     Return True if ``filename`` contains ``text`` (which may be a regex.)
 
@@ -82,7 +82,7 @@ def contains(c, runner, filename, text, exact=False, escape=True): # pylint: dis
 
 
 @set_runner
-def append(c, runner, filename, text, partial=False, escape=True): # pylint: disable=R0913
+def append(c, runner, filename, text, partial=False, escape=True): # pylint: disable=R0913,R0917
     """
     Append string (or list of strings) ``text`` to ``filename``.
 
