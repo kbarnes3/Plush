@@ -8,7 +8,7 @@
     # via ./python
 astroid==3.3.5
     # via pylint
-bcrypt==4.2.0
+bcrypt==4.2.1
     # via paramiko
 certifi==2024.8.30
     # via requests
@@ -20,14 +20,14 @@ charset-normalizer==3.4.0
     # via requests
 colorama==0.4.6
     # via plush-fabric
-cryptography==43.0.3
+cryptography==44.0.0
     # via
     #   paramiko
     #   pyjwt
     #   secretstorage
 decorator==5.1.1
     # via fabric
-deprecated==1.2.14
+deprecated==1.2.15
     # via
     #   fabric
     #   pygithub
@@ -76,9 +76,9 @@ pyasn1-modules==0.4.1
     # via oauth2client
 pycparser==2.22
     # via cffi
-pygithub==2.4.0
+pygithub==2.5.0
     # via plush-fabric
-pyjwt[crypto]==2.9.0
+pyjwt[crypto]==2.10.1
     # via pygithub
 pylint==3.3.1
     # via plush-fabric
@@ -104,5 +104,5 @@ urllib3==2.2.3
     # via
     #   pygithub
     #   requests
-wrapt==1.16.0
+wrapt==1.17.0
     # via deprecated
