@@ -12,7 +12,7 @@ bcrypt==4.2.1
     # via paramiko
 build==1.2.2.post1
     # via plush-fabric
-certifi==2024.12.14
+certifi==2025.1.31
     # via requests
 cffi==1.17.1
     # via
@@ -31,7 +31,7 @@ cryptography==44.0.0
     #   pyjwt
 decorator==5.1.1
     # via fabric
-deprecated==1.2.15
+deprecated==1.2.18
     # via
     #   fabric
     #   pygithub
@@ -43,11 +43,13 @@ fabric==3.2.2
     # via plush-fabric
 httplib2==0.22.0
     # via oauth2client
+id==1.5.0
+    # via twine
 idna==3.10
     # via requests
 invoke==2.2.0
     # via fabric
-isort==5.13.2
+isort==6.0.0
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
@@ -65,7 +67,7 @@ mccabe==0.7.0
     # via pylint
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==10.5.0
+more-itertools==10.6.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -79,8 +81,6 @@ packaging==24.2
     #   twine
 paramiko==3.5.0
     # via fabric
-pkginfo==1.12.0
-    # via twine
 platformdirs==4.3.6
     # via pylint
 pyasn1==0.6.1
@@ -94,13 +94,13 @@ pycparser==2.22
     # via cffi
 pygithub==2.5.0
     # via plush-fabric
-pygments==2.18.0
+pygments==2.19.1
     # via
     #   readme-renderer
     #   rich
 pyjwt[crypto]==2.10.1
     # via pygithub
-pylint==3.3.3
+pylint==3.3.4
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -116,6 +116,7 @@ readme-renderer==44.0
     # via twine
 requests==2.32.3
     # via
+    #   id
     #   pygithub
     #   requests-toolbelt
     #   twine
@@ -131,7 +132,7 @@ six==1.17.0
     # via oauth2client
 tomlkit==0.13.2
     # via pylint
-twine==6.0.1
+twine==6.1.0
     # via plush-fabric
 typing-extensions==4.12.2
     # via pygithub
@@ -140,5 +141,5 @@ urllib3==2.3.0
     #   pygithub
     #   requests
     #   twine
-wrapt==1.17.0
+wrapt==1.17.2
     # via deprecated
