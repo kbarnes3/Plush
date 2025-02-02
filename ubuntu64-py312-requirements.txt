@@ -10,7 +10,7 @@ astroid==3.3.8
     # via pylint
 bcrypt==4.2.1
     # via paramiko
-certifi==2024.12.14
+certifi==2025.1.31
     # via requests
 cffi==1.17.1
     # via
@@ -27,7 +27,7 @@ cryptography==44.0.0
     #   secretstorage
 decorator==5.1.1
     # via fabric
-deprecated==1.2.15
+deprecated==1.2.18
     # via
     #   fabric
     #   pygithub
@@ -41,7 +41,7 @@ idna==3.10
     # via requests
 invoke==2.2.0
     # via fabric
-isort==5.13.2
+isort==6.0.0
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
@@ -57,7 +57,7 @@ keyring==25.6.0
     # via plush-fabric
 mccabe==0.7.0
     # via pylint
-more-itertools==10.5.0
+more-itertools==10.6.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -80,7 +80,7 @@ pygithub==2.5.0
     # via plush-fabric
 pyjwt[crypto]==2.10.1
     # via pygithub
-pylint==3.3.3
+pylint==3.3.4
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -104,5 +104,5 @@ urllib3==2.3.0
     # via
     #   pygithub
     #   requests
-wrapt==1.17.0
+wrapt==1.17.2
     # via deprecated
