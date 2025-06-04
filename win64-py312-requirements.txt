@@ -6,7 +6,7 @@
 #
 -e ./python
     # via ./python
-astroid==3.3.9
+astroid==3.3.10
     # via pylint
 bcrypt==4.3.0
     # via paramiko
@@ -25,7 +25,7 @@ colorama==0.4.6
     #   build
     #   plush-fabric
     #   pylint
-cryptography==44.0.2
+cryptography==45.0.3
     # via
     #   paramiko
     #   pyjwt
@@ -81,7 +81,7 @@ packaging==25.0
     #   twine
 paramiko==3.5.1
     # via fabric
-platformdirs==4.3.7
+platformdirs==4.3.8
     # via pylint
 pyasn1==0.6.1
     # via
@@ -100,7 +100,7 @@ pygments==2.19.1
     #   rich
 pyjwt[crypto]==2.10.1
     # via pygithub
-pylint==3.3.6
+pylint==3.3.7
     # via plush-fabric
 pynacl==1.5.0
     # via
@@ -134,7 +134,7 @@ tomlkit==0.13.2
     # via pylint
 twine==6.1.0
     # via plush-fabric
-typing-extensions==4.13.2
+typing-extensions==4.14.0
     # via pygithub
 urllib3==2.4.0
     # via
