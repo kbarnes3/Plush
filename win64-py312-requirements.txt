@@ -25,7 +25,7 @@ colorama==0.4.6
     #   build
     #   plush-fabric
     #   pylint
-cryptography==45.0.3
+cryptography==45.0.4
     # via
     #   paramiko
     #   pyjwt
@@ -114,7 +114,7 @@ pywin32-ctypes==0.2.3
     # via keyring
 readme-renderer==44.0
     # via twine
-requests==2.32.3
+requests==2.32.4
     # via
     #   id
     #   pygithub
@@ -130,7 +130,7 @@ rsa==4.9.1
     # via oauth2client
 six==1.17.0
     # via oauth2client
-tomlkit==0.13.2
+tomlkit==0.13.3
     # via pylint
 twine==6.1.0
     # via plush-fabric
