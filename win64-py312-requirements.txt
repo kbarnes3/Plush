@@ -12,7 +12,7 @@ bcrypt==4.3.0
     # via paramiko
 build==1.2.2.post1
     # via plush-fabric
-certifi==2025.4.26
+certifi==2025.6.15
     # via requests
 cffi==1.17.1
     # via
@@ -25,7 +25,7 @@ colorama==0.4.6
     #   build
     #   plush-fabric
     #   pylint
-cryptography==45.0.4
+cryptography==45.0.5
     # via
     #   paramiko
     #   pyjwt
@@ -55,7 +55,7 @@ jaraco-classes==3.4.0
     # via keyring
 jaraco-context==6.0.1
     # via keyring
-jaraco-functools==4.1.0
+jaraco-functools==4.2.1
     # via keyring
 keyring==25.6.0
     # via
@@ -94,7 +94,7 @@ pycparser==2.22
     # via cffi
 pygithub==2.6.1
     # via plush-fabric
-pygments==2.19.1
+pygments==2.19.2
     # via
     #   readme-renderer
     #   rich
@@ -134,9 +134,9 @@ tomlkit==0.13.3
     # via pylint
 twine==6.1.0
     # via plush-fabric
-typing-extensions==4.14.0
+typing-extensions==4.14.1
     # via pygithub
-urllib3==2.4.0
+urllib3==2.5.0
     # via
     #   pygithub
     #   requests
