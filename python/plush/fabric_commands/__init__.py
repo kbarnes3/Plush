@@ -1,5 +1,3 @@
-from typing import Iterable
-
 from colorama import init, Fore, Style
 from colorama.initialise import orig_stdout
 from fabric.connection import Connection
@@ -15,7 +13,8 @@ def _ensure_colorama_init():
         init()
 
 
-def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo_passwd=False):
+def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo_passwd=False,
+                 uid: int | None = None, gid: int | None = None) -> str:
     messages = ''
     user_exists = False
 
@@ -28,7 +27,11 @@ def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo
     if not user_exists:
         # Handle all the prompts for information about the new user like their name and room number
         responder = Responder(r'.*\[.*\].*', '\n')
-        conn.sudo(f'adduser --disabled-password {user}', pty=True, watchers=[responder])
+        if uid is not None:
+            conn.sudo(f'adduser --uid {uid} --disabled-password {user}',
+                      pty=True, watchers=[responder])
+        else:
+            conn.sudo(f'adduser --disabled-password {user}', pty=True, watchers=[responder])
 
     group_exists = False
     try:
@@ -38,7 +41,10 @@ def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo
         pass
 
     if not group_exists:
-        conn.sudo(f'addgroup {group}')
+        if gid is not None:
+            conn.sudo(f'addgroup --gid {gid} {group}')
+        else:
+            conn.sudo(f'addgroup {group}')
 
     conn.sudo(f'adduser {user} {group}')
 
@@ -80,7 +86,7 @@ def add_authorized_key(conn: Connection, user, public_key):
               pty=True)
 
 
-def install_packages(conn: Connection, packages: Iterable[str]):
+def install_packages(conn: Connection, packages: list[str]):
     _ensure_colorama_init()
     apt = "DEBIAN_FRONTEND=noninteractive apt-get install -y {}"
     for package in packages:
