@@ -6,11 +6,11 @@
 #
 -e ./python
     # via ./python
-astroid==3.3.10
+astroid==3.3.11
     # via pylint
 bcrypt==4.3.0
     # via paramiko
-certifi==2025.6.15
+certifi==2025.7.14
     # via requests
 cffi==1.17.1
     # via
