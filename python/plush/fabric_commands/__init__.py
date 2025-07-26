@@ -13,7 +13,8 @@ def _ensure_colorama_init():
         init()
 
 
-def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo_passwd=False, uid: int | None = None, gid: int | None = None) -> str:
+def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo_passwd=False,
+                 uid: int | None = None, gid: int | None = None) -> str:
     messages = ''
     user_exists = False
 
@@ -27,7 +28,8 @@ def prepare_user(conn: Connection, user: str, group: str, add_sudo=True, no_sudo
         # Handle all the prompts for information about the new user like their name and room number
         responder = Responder(r'.*\[.*\].*', '\n')
         if uid is not None:
-            conn.sudo(f'adduser --uid {uid} --disabled-password {user}', pty=True, watchers=[responder])
+            conn.sudo(f'adduser --uid {uid} --disabled-password {user}',
+                      pty=True, watchers=[responder])
         else:
             conn.sudo(f'adduser --disabled-password {user}', pty=True, watchers=[responder])
 
