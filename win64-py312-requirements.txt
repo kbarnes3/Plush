@@ -8,13 +8,13 @@
     # via -/python[test,publish]
 astroid==3.3.11
     # via pylint
-bcrypt==4.3.0
+bcrypt==5.0.0
     # via paramiko
 build==1.3.0
     # via plush-fabric
 certifi==2025.8.3
     # via requests
-cffi==1.17.1
+cffi==2.0.0
     # via
     #   cryptography
     #   pynacl
@@ -25,7 +25,7 @@ colorama==0.4.6
     #   build
     #   plush-fabric
     #   pylint
-cryptography==45.0.7
+cryptography==46.0.2
     # via
     #   paramiko
     #   pyjwt
@@ -35,11 +35,11 @@ deprecated==1.2.18
     # via fabric
 dill==0.4.0
     # via pylint
-docutils==0.22
+docutils==0.22.2
     # via readme-renderer
 fabric==3.2.2
     # via plush-fabric
-httplib2==0.30.0
+httplib2==0.31.0
     # via oauth2client
 id==1.5.0
     # via twine
@@ -49,7 +49,7 @@ invoke==2.2.0
     # via
     #   fabric
     #   paramiko
-isort==6.0.1
+isort==6.1.0
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
@@ -90,7 +90,7 @@ pyasn1==0.6.1
     #   rsa
 pyasn1-modules==0.4.2
     # via oauth2client
-pycparser==2.22
+pycparser==2.23
     # via cffi
 pygithub==2.8.1
     # via plush-fabric
@@ -102,11 +102,11 @@ pyjwt[crypto]==2.10.1
     # via pygithub
 pylint==3.3.8
     # via plush-fabric
-pynacl==1.5.0
+pynacl==1.6.0
     # via
     #   paramiko
     #   pygithub
-pyparsing==3.2.3
+pyparsing==3.2.5
     # via httplib2
 pyproject-hooks==1.2.0
     # via build
