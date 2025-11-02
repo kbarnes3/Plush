@@ -16,7 +16,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
+        python -m pip install --upgrade "pip<25.3"
         python -m pip install --upgrade pip-tools
         pip-sync ubuntu64-py312-requirements.txt
     - name: Running pylint python/plush
