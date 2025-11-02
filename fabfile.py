@@ -109,7 +109,7 @@ def compile_requirements(conn, fresh=False, upgrade=False):
         conn.run('python3 -m venv venv')
 
         print(Fore.GREEN + 'Updating pip')
-        conn.run('venv/bin/python -m pip install --upgrade pip')
+        conn.run('venv/bin/python -m pip install --upgrade "pip<25.3"')
 
         print(Fore.GREEN + 'Updating pip-tools')
         conn.run('venv/bin/python -m pip install --upgrade pip-tools')
