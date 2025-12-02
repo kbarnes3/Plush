@@ -25,7 +25,7 @@ if (-Not (Test-Path $venv)) {
 $already_activated = . $PSScriptRoot\Ensure-Venv.ps1
 
 Write-Status "Updating pip"
-& python -m pip install --upgrade pip<25.3 $quiet
+& python -m pip install --upgrade pip $quiet
 Write-Status "Updating pip-tools"
 & python -m pip install --upgrade pip-tools $quiet
 Write-Status "Updating requirements"
