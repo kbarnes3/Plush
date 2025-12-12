@@ -65,7 +65,7 @@ oauth2client==4.1.3
     # via plush-fabric
 paramiko==4.0.0
     # via fabric
-platformdirs==4.5.0
+platformdirs==4.5.1
     # via pylint
 pyasn1==0.6.1
     # via
@@ -100,7 +100,7 @@ tomlkit==0.13.3
     # via pylint
 typing-extensions==4.15.0
     # via pygithub
-urllib3==2.5.0
+urllib3==2.6.2
     # via
     #   pygithub
     #   requests

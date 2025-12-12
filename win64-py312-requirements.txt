@@ -81,7 +81,7 @@ packaging==25.0
     #   twine
 paramiko==4.0.0
     # via fabric
-platformdirs==4.5.0
+platformdirs==4.5.1
     # via pylint
 pyasn1==0.6.1
     # via
@@ -136,7 +136,7 @@ twine==6.2.0
     # via plush-fabric
 typing-extensions==4.15.0
     # via pygithub
-urllib3==2.5.0
+urllib3==2.6.2
     # via
     #   pygithub
     #   requests
