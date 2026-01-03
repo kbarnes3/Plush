@@ -45,9 +45,9 @@ isort==7.0.0
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
-jaraco-context==6.0.1
+jaraco-context==6.0.2
     # via keyring
-jaraco-functools==4.3.0
+jaraco-functools==4.4.0
     # via keyring
 jeepney==0.9.0
     # via
@@ -82,11 +82,11 @@ pyjwt[crypto]==2.10.1
     # via pygithub
 pylint==4.0.4
     # via plush-fabric
-pynacl==1.6.1
+pynacl==1.6.2
     # via
     #   paramiko
     #   pygithub
-pyparsing==3.2.5
+pyparsing==3.3.1
     # via httplib2
 requests==2.32.5
     # via pygithub

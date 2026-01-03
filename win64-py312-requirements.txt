@@ -35,7 +35,7 @@ deprecated==1.3.1
     # via fabric
 dill==0.4.0
     # via pylint
-docutils==0.22.3
+docutils==0.22.4
     # via readme-renderer
 fabric==3.2.2
     # via plush-fabric
@@ -53,9 +53,9 @@ isort==7.0.0
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
-jaraco-context==6.0.1
+jaraco-context==6.0.2
     # via keyring
-jaraco-functools==4.3.0
+jaraco-functools==4.4.0
     # via keyring
 keyring==25.7.0
     # via
@@ -102,11 +102,11 @@ pyjwt[crypto]==2.10.1
     # via pygithub
 pylint==4.0.4
     # via plush-fabric
-pynacl==1.6.1
+pynacl==1.6.2
     # via
     #   paramiko
     #   pygithub
-pyparsing==3.2.5
+pyparsing==3.3.1
     # via httplib2
 pyproject-hooks==1.2.0
     # via build
