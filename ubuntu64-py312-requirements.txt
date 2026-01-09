@@ -6,11 +6,11 @@
 #
 -e ./python[test]
     # via -/python[test]
-astroid==4.0.2
+astroid==4.0.3
     # via pylint
 bcrypt==5.0.0
     # via paramiko
-certifi==2025.11.12
+certifi==2026.1.4
     # via requests
 cffi==2.0.0
     # via
@@ -100,7 +100,7 @@ tomlkit==0.13.3
     # via pylint
 typing-extensions==4.15.0
     # via pygithub
-urllib3==2.6.2
+urllib3==2.6.3
     # via
     #   pygithub
     #   requests
