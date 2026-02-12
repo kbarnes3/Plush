@@ -6,7 +6,7 @@
 #
 -e ./python[test]
     # via -/python[test]
-astroid==4.0.3
+astroid==4.0.4
     # via pylint
 bcrypt==5.0.0
     # via paramiko
@@ -20,7 +20,7 @@ charset-normalizer==3.4.4
     # via requests
 colorama==0.4.6
     # via plush-fabric
-cryptography==46.0.4
+cryptography==46.0.5
     # via
     #   paramiko
     #   pyjwt
