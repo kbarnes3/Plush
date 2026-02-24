@@ -1,11 +1,10 @@
 from colorama import init, Fore
 from fabric import Task
 from fabric.connection import Connection
-from fabric.transfer import Transfer
 from plush.patchwork.files import exists as patchwork_exists
 
 import plush.fabric_commands
-from plush.fabric_commands import install_packages, prepare_user
+from plush.fabric_commands import prepare_user
 from plush.fabric_commands.git import clone
 from plush.fabric_commands.permissions import ensure_directory
 from plush.fabric_commands.ssh_key import create_key
@@ -73,60 +72,3 @@ def test_deploy(conn, repo):
         conn.sudo('rm -rf /var/src/test')
     clone(conn, repo, '/var/src/test', skip_strict_key_checking=True)
     print(Fore.GREEN + 'Test deployment complete to /var/src/test')
-
-
-@Task
-def compile_requirements(conn, fresh=False, upgrade=False):
-    print(Fore.GREEN + 'Compiling Python requirements')
-    install_packages(conn, ['python3-venv'])
-    remote_user = conn.run('whoami').stdout.strip()
-
-    staging_dir = '/tmp/pip-tools'
-    staging_python_dir = f'{staging_dir}/python'
-
-    ensure_directory(conn, staging_dir, remote_user)
-    conn.sudo(f'rm -rf {staging_dir}/*')
-    ensure_directory(conn, f'{staging_python_dir}', remote_user)
-    ensure_directory(conn, f'{staging_python_dir}/plush', remote_user)
-    ensure_directory(conn, f'{staging_python_dir}/plush/fabric_commands', remote_user)
-    ensure_directory(conn, f'{staging_python_dir}/plush/patchwork', remote_user)
-
-    requirements_in = 'test-requirements.in'
-    pyproject_toml = 'pyproject.toml'
-    readme_md = 'README.md'
-    requirements_txt = 'ubuntu64-py312-requirements.txt'
-
-    transfer = Transfer(conn)
-    transfer.put(requirements_in, f'{staging_dir}/{requirements_in}')
-    transfer.put(f'python/{pyproject_toml}', f'{staging_python_dir}/{pyproject_toml}')
-    transfer.put(f'python/{readme_md}', f'{staging_python_dir}/{readme_md}')
-
-    if not fresh:
-        transfer.put(requirements_txt, f'{staging_dir}/{requirements_txt}')
-
-    print(Fore.GREEN + 'Setting up virtualenv')
-    with conn.cd(staging_dir):
-        conn.run('python3 -m venv venv')
-
-        print(Fore.GREEN + 'Updating pip')
-        conn.run('venv/bin/python -m pip install --upgrade "pip<26"')
-
-        print(Fore.GREEN + 'Updating pip-tools')
-        conn.run('venv/bin/python -m pip install --upgrade pip-tools')
-
-        print(Fore.GREEN + 'Compiling requirements')
-        upgrade_flag = ''
-        if upgrade:
-            upgrade_flag = '--upgrade'
-        conn.run(f'venv/bin/pip-compile {upgrade_flag} --output-file={requirements_txt} ' +
-                 f'{requirements_in}')
-
-        # Substitute an absolute path to Plush with a relative one
-        conn.run("sed -i 's/file:\\/\\/\\/tmp\\/pip-tools\\/python/\\.\\/python/g' " +
-                f"{requirements_txt}")
-
-
-    transfer.get(f'{staging_dir}/{requirements_txt}', requirements_txt)
-    print(Fore.GREEN + f'Updated {requirements_txt}')
-    print(Fore.GREEN + 'Removing temp files')
-    conn.sudo('rm -rf /tmp/pip-tools')

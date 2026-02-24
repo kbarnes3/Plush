@@ -11,7 +11,7 @@ Write-Status "Plush console"
 # Set a global variable to indicate we want to set and update some useful console functions
 $Global:console_functions = $true
 
-$venv = Join-Path $project_root "venv\scripts\Activate.ps1"
+$venv = Join-Path $project_root ".venv\scripts\Activate.ps1"
 if (Test-Path $venv) {
     if (-Not($Quick)) {
         . $PSScriptRoot\Update.ps1 -Verbose:$Verbose

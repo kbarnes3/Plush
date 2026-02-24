@@ -20,7 +20,7 @@ Set-Item function:global:Invoke-Fabric {
     $project_root = Split-Path $PSScriptRoot
     $already_activated = . $PSScriptRoot\Ensure-Venv.ps1
 
-    $fabric = Join-Path $project_root "venv\Scripts\fab.exe"
+    $fabric = Join-Path $project_root ".venv\Scripts\fab.exe"
     if ($ListTasks -or -not $Hosts) {
         $listFunctions = $True
         $fabricArgs = "--list"
@@ -129,25 +129,3 @@ Set-Item function:global:Fabric-TestDeploy {
 
     Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $testDeployArgs
 } -Force
-
-Set-Item function:global:Fabric-CompileRequirements {
-    param(
-        [Parameter(Mandatory=$true)]
-        [string]$Hosts,
-        [switch]$Fresh,
-        [switch]$Upgrade,
-        [switch]$PromptForPassphrase,
-        [switch]$PromptForLoginPassword,
-        [switch]$PromptForSudoPassword
-    )
-
-    $compileArgs = @("compile-requirements")
-    if ($Fresh) {
-        $compileArgs += "--fresh"
-    }
-    if ($Upgrade) {
-        $compileArgs += "--upgrade"
-    }
-
-    Invoke-Fabric $Hosts -PromptForPassphrase:$PromptForPassphrase -PromptForLoginPassword:$PromptForLoginPassword -PromptForSudoPassword:$PromptForSudoPassword $compileArgs
-}

@@ -16,20 +16,15 @@ $project_root = Split-Path $PSScriptRoot
 
 Push-Location $project_root
 
-$venv = Join-Path $project_root "venv"
-if (-Not (Test-Path $venv)) {
-    Write-Status "Creating venv in $venv"
-    . $PSScriptRoot\Invoke-NonVenvPython.ps1 @('-m', 'venv', $venv)
+# Ensure uv is installed
+if (-Not (Get-Command uv -ErrorAction SilentlyContinue)) {
+    Write-Status "Installing uv via winget"
+    winget install --id=astral-sh.uv -e
+    Write-Warning "uv was just installed. You may need to restart your terminal for it to take effect."
 }
 
-$already_activated = . $PSScriptRoot\Ensure-Venv.ps1
-
-Write-Status "Updating pip"
-& python -m pip install --upgrade "pip<26" $quiet
-Write-Status "Updating pip-tools"
-& python -m pip install --upgrade pip-tools $quiet
 Write-Status "Updating requirements"
-& pip-sync .\win64-py312-requirements.txt $quiet
+& uv sync $quiet
 
 if ($Global:console_functions) {
     # Define or update the console scripts if we want them
@@ -37,7 +32,3 @@ if ($Global:console_functions) {
 }
 
 Pop-Location
-
-if (-Not $already_activated) {
-    deactivate
-}
