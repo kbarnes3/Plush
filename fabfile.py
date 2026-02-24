@@ -1,7 +1,6 @@
 from colorama import init, Fore
 from fabric import Task
 from fabric.connection import Connection
-from fabric.transfer import Transfer
 from plush.patchwork.files import exists as patchwork_exists
 
 import plush.fabric_commands
@@ -73,45 +72,3 @@ def test_deploy(conn, repo):
         conn.sudo('rm -rf /var/src/test')
     clone(conn, repo, '/var/src/test', skip_strict_key_checking=True)
     print(Fore.GREEN + 'Test deployment complete to /var/src/test')
-
-
-@Task
-def compile_requirements(conn, fresh=False, upgrade=False):
-    print(Fore.GREEN + 'Compiling Python requirements')
-    remote_user = conn.run('whoami').stdout.strip()
-
-    staging_dir = '/tmp/uv-lock'
-    staging_python_dir = f'{staging_dir}/python'
-
-    ensure_directory(conn, staging_dir, remote_user)
-    conn.sudo(f'rm -rf {staging_dir}/*')
-    ensure_directory(conn, f'{staging_python_dir}', remote_user)
-    ensure_directory(conn, f'{staging_python_dir}/plush', remote_user)
-    ensure_directory(conn, f'{staging_python_dir}/plush/fabric_commands', remote_user)
-    ensure_directory(conn, f'{staging_python_dir}/plush/patchwork', remote_user)
-
-    pyproject_toml = 'pyproject.toml'
-    lock_file = 'uv.lock'
-
-    transfer = Transfer(conn)
-    transfer.put(pyproject_toml, f'{staging_dir}/{pyproject_toml}')
-    transfer.put(f'python/{pyproject_toml}', f'{staging_python_dir}/{pyproject_toml}')
-    transfer.put('python/README.md', f'{staging_python_dir}/README.md')
-
-    if not fresh:
-        transfer.put(lock_file, f'{staging_dir}/{lock_file}')
-
-    print(Fore.GREEN + 'Installing uv')
-    conn.run('curl -LsSf https://astral.sh/uv/install.sh | sh')
-
-    print(Fore.GREEN + 'Compiling requirements')
-    with conn.cd(staging_dir):
-        upgrade_flag = ''
-        if upgrade:
-            upgrade_flag = '--upgrade'
-        conn.run(f'~/.local/bin/uv lock {upgrade_flag}')
-
-    transfer.get(f'{staging_dir}/{lock_file}', lock_file)
-    print(Fore.GREEN + f'Updated {lock_file}')
-    print(Fore.GREEN + 'Removing temp files')
-    conn.sudo(f'rm -rf {staging_dir}')
