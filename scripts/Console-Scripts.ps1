@@ -2,7 +2,7 @@
 
 Set-Item function:global:Build-Plush {
     Push-Location $PSScriptRoot\..\python
-    python -m build
+    uv build
     Pop-Location
 }
 
@@ -13,11 +13,8 @@ Set-Item function:global:Update-DevEnvironment {
 
 Set-Item function:global:Upgrade-Requirements {
     Push-Location $PSScriptRoot\..
-    & pip-compile --upgrade --output-file=win64-py312-requirements.txt .\requirements.in
-    $requirements = Get-Content .\win64-py312-requirements.txt
-    $requirements = $requirements -replace 'file:///.*Plush/python', './python'
-    Set-Content -Path .\win64-py312-requirements.txt -Value $requirements
+    & uv lock --upgrade
     Pop-Location
-    Write-Host 'win64-py312-requirements.txt updated.'
-    Write-Host 'Run pip-sync win64-py312-requirements.txt to update your environment.'
+    Write-Host 'uv.lock updated.'
+    Write-Host 'Run uv sync to update your environment.'
 }

@@ -16,7 +16,7 @@ if ($GitClean) {
 }
 
 # Remove local state if it exists
-$venv = Join-Path $project_root "venv"
+$venv = Join-Path $project_root ".venv"
 if (Test-Path $venv) {
     Write-Status "Removing $venv"
     Remove-Item -Recurse -Force -Path $venv

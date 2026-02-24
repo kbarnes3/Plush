@@ -3,7 +3,7 @@
 # and throws if no venv could be activated.
 
 $project_root = Split-Path $PSScriptRoot
-$expected_venv = Join-Path $project_root "venv"
+$expected_venv = Join-Path $project_root ".venv"
 
 if ($ENV:VIRTUAL_ENV -eq $expected_venv) {
     return $True

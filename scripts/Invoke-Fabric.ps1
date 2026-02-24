@@ -20,7 +20,7 @@ Set-Item function:global:Invoke-Fabric {
     $project_root = Split-Path $PSScriptRoot
     $already_activated = . $PSScriptRoot\Ensure-Venv.ps1
 
-    $fabric = Join-Path $project_root "venv\Scripts\fab.exe"
+    $fabric = Join-Path $project_root ".venv\Scripts\fab.exe"
     if ($ListTasks -or -not $Hosts) {
         $listFunctions = $True
         $fabricArgs = "--list"
