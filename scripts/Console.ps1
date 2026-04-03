@@ -14,6 +14,20 @@ $Global:console_functions = $true
 $venv = Join-Path $project_root ".venv\scripts\Activate.ps1"
 if (Test-Path $venv) {
     if (-Not($Quick)) {
+        Push-Location $PSScriptRoot
+        $currentBranch = & git rev-parse --abbrev-ref HEAD 2>$null
+        if ($currentBranch -eq "trunk") {
+            $localSha = & git rev-parse HEAD 2>$null
+            $originSha = & git rev-parse origin/trunk 2>$null
+            if ($localSha -eq $originSha) {
+                Write-Status "Fetching latest changes..."
+                & git fetch --all --quiet
+                & git merge --ff-only 2>$null
+                if (-Not $?) {
+                    Write-Status "Warning: fast-forward merge failed, continuing with current state"
+                }
+            }
+        }
         . $PSScriptRoot\Update.ps1 -Verbose:$Verbose
     }
 }
