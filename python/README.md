@@ -2,7 +2,7 @@ Plush
 ==============
 
 A helper library for [Fabric](https://www.fabfile.org) to simplify creating and managing GitHub deploy keys when deploying your GitHub-hosted
-repository. Currently, Plush is only tested on Ubuntu 24.04 LTS.
+repository. Currently, Plush is tested on Ubuntu 24.04 LTS and 26.04 LTS.
 
 Plush aims to make deployments easier by:
 - Using OAuth flows to securely connect to the GitHub API on your behalf
@@ -15,7 +15,7 @@ SSH keys used elsewhere on your server
 (and not readable by anyone else on the server)
 - Example PowerShell scripts are provided that give tab completion around fab.exe
 
-To see this project in action, follow the directions in Setup-Dev-Environment.md. You will need access to an Ubuntu 24.04 machine (ideally a VM).
+To see this project in action, follow the directions in Setup-Dev-Environment.md. You will need access to an Ubuntu 24.04 or 26.04 machine (ideally a VM).
 
 ## Usage
 

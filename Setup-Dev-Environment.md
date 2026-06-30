@@ -9,7 +9,7 @@ To setup your dev environment
 -----------------------------
 
 1. Install all the required tools. This includes:  
-    a. The latest release of [Python 3.12](https://www.python.org/). Other versions of Python are not currently tested. Python 3.12 is used as it is the default version installed on Ubuntu 24.04 LTS.
+    a. The latest release of [Python 3.14](https://www.python.org/). Python 3.14 is used by default as it is the default version installed on Ubuntu 26.04 LTS. Python 3.12 (the default on Ubuntu 24.04 LTS) is also tested; other versions of Python are not currently tested.
     b. The latest release of [uv](https://docs.astral.sh/uv/getting-started/installation/).  
     c. The latest release of [Git](http://git-scm.com/downloads).
 1. Clone the repo locally and open a PowerShell prompt in the root folder.
