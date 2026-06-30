@@ -3,7 +3,7 @@ Testing
 
 Setup
 -----
-First, set up a clean Ubuntu 18.04 LTS server VM. Update it by running:
+First, set up a clean Ubuntu 24.04 LTS or 26.04 LTS server VM. Update it by running:
   * `sudo apt-get update`
   * `sudo apt-get dist-upgrade`
   * `sudo apt-get autoremove`
